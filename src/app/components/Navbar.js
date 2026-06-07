@@ -72,8 +72,6 @@ export default function Navbar() {
           >
             Resume
           </a>
-
-  
         </div>
       </header>
     </div>

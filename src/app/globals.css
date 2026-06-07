@@ -262,8 +262,8 @@ a {
 }
 
 .music-widget {
-  top: 9%;
-  left: 5%;
+  top: 6%;
+  left: 4%;
   width: 292px;
   height: 152px;
   overflow: hidden;
@@ -285,79 +285,40 @@ a {
 }
 
 .about-window {
-  top: 13%;
-  left: 43%;
+  top: 8%;
+  left: 40%;
   width: 205px;
   transform: rotate(7deg);
   animation: canvas-float-b 6s ease-in-out infinite;
 }
 
 .wall-sign {
-  top: 14%;
-  right: 7%;
+  position: relative;
   min-width: 160px;
   border: 4px solid #111111;
   border-radius: 4px;
   background: #8c55ff;
-  padding: 14px 18px;
+  padding: 14px 24px;
   color: #ffffff;
   font-size: 25px;
   line-height: 1;
   text-align: center;
-  transform: rotate(11deg);
-  transform-origin: 50% -45px;
-  animation: canvas-swing 4.8s ease-in-out infinite;
-}
-
-.wall-sign::before,
-.wall-sign::after {
-  position: absolute;
-  top: -50px;
-  width: 76px;
-  height: 4px;
-  border-radius: 999px;
-  background: #111111;
-  content: "";
-}
-
-.wall-sign::before {
-  left: 13px;
-  transform: rotate(-27deg);
-  transform-origin: right center;
-}
-
-.wall-sign::after {
-  right: 13px;
-  transform: rotate(27deg);
-  transform-origin: left center;
-}
-
-.wall-sign {
   box-shadow: 4px 6px 0 #111111;
+  transform: rotate(-2deg);
 }
 
-.sign-ring {
-  position: absolute;
-  top: -72px;
-  left: 50%;
-  width: 18px;
-  height: 18px;
-  border: 4px solid #111111;
-  border-radius: 50%;
-  background: #ffffff;
-  pointer-events: none;
-  transform: translateX(-50%);
+.wall-sign-wrapper {
+  top: 14%;
+  right: 6%;
+  transform-origin: 50% -57px;
+  animation: canvas-swing 3.2s ease-in-out infinite;
 }
 
-.wall-sign:hover {
-  animation: sign-hover-swing 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
-}
-
-.wall-sign::marker {
+.wall-sign-wrapper::marker {
   content: "";
 }
 
-.wall-sign:focus-visible {
+.wall-sign-wrapper:focus-visible {
   outline: 3px solid rgba(140, 85, 255, 0.35);
   outline-offset: 8px;
 }
@@ -367,8 +328,8 @@ a {
 }
 
 .smile-doodle {
-  top: 44%;
-  left: 10%;
+  top: 38%;
+  left: 12%;
   width: 78px;
   height: 78px;
   border: 3px solid #111111;
@@ -406,137 +367,38 @@ a {
   border-radius: 0 0 999px 999px;
 }
 
-.heart-doodle {
-  top: 44%;
-  right: 12%;
-  width: 72px;
-  height: 96px;
-  transform: rotate(8deg);
-  animation: canvas-pulse 4.4s ease-in-out infinite;
+
+.npm-widget {
+  top: 38%;
+  right: 7%;
+  transform: rotate(2deg);
+  animation: canvas-float-b 6s ease-in-out infinite;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.heart-doodle::before,
-.heart-doodle::after {
-  position: absolute;
-  width: 38px;
-  height: 74px;
-  border: 3px solid #111111;
-  border-bottom: 0;
-  border-radius: 999px 999px 0 0;
-  content: "";
-}
 
-.heart-doodle::before {
-  left: 11px;
-  transform: rotate(-31deg);
-}
 
-.heart-doodle::after {
-  right: 3px;
-  transform: rotate(36deg);
-}
-
-.award-tile {
-  bottom: 8.5%;
-  left: 7.5%;
+.github-badge-cluster {
+  bottom: 6%;
+  left: 5%;
   display: flex;
-  width: 154px;
-  height: 170px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 15px;
-  background: #2c176d;
-  padding: 18px 15px 16px;
-  color: #ffffff;
-  text-align: center;
-  transform: rotate(-14deg);
+  background: white;
+  padding: 14px 16px;
+  border-radius: 12px;
+  transform: rotate(-4deg);
   animation: canvas-float-d 5.8s ease-in-out infinite;
-  box-shadow: 0 10px 18px rgba(36, 24, 82, 0.16);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.trophy {
-  position: relative;
-  display: grid;
-  width: 64px;
-  height: 58px;
-  place-items: center;
-  margin-bottom: 21px;
-  border: 0;
-  border-radius: 0;
-  background:
-    linear-gradient(#f2c52e, #e69b13) center 12px / 44px 35px no-repeat;
-  color: #ffffff;
-  font-size: 22px;
-  line-height: 1;
+.github-badge-cluster:hover {
+  transform: translateY(-8px) rotate(-1deg) scale(1.02);
 }
-
-.trophy::before,
-.trophy::after {
-  position: absolute;
-  top: 14px;
-  width: 23px;
-  height: 20px;
-  border: 5px solid #f2c52e;
-  border-radius: 0 0 999px 999px;
-  content: "";
-}
-
-.trophy::before {
-  left: -4px;
-  border-right: 0;
-}
-
-.trophy::after {
-  right: -4px;
-  border-left: 0;
-}
-
-.trophy span {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  width: 29px;
-  height: 29px;
-  place-items: center;
-  border-radius: 50%;
-  background: #f2a50f;
-}
-
-.trophy span::after {
-  position: absolute;
-  bottom: -26px;
-  left: 50%;
-  width: 38px;
-  height: 23px;
-  border-radius: 2px;
-  background:
-    linear-gradient(#e7c34d, #d49b18) center top / 20px 13px no-repeat,
-    linear-gradient(#214b75, #112e51) center bottom / 38px 12px no-repeat;
-  content: "";
-  transform: translateX(-50%);
-}
-
-.award-tile p {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.22;
-}
-
-.award-tile span {
-  display: block;
-}
-
-.award-tile:hover {
-  animation: none;
-  transform: translateY(-10px) rotate(0deg) scale(1.04);
-}
-
 .winner-card {
-  top: 46%;
-  left: 36%;
+  top: 40%;
+  left: 38%;
   width: 302px;
   height: 250px;
   transform: rotate(5deg);
@@ -588,8 +450,8 @@ a {
 }
 
 .sticky-note {
-  right: 3%;
-  bottom: 5%;
+  right: 5%;
+  bottom: 4%;
   width: 198px;
   min-height: 190px;
   border-radius: 8px 8px 5px 5px;
@@ -730,33 +592,33 @@ a {
 @keyframes canvas-swing {
   0%,
   100% {
-    transform: translateY(0) rotate(11deg);
+    transform: rotate(8deg);
   }
 
   50% {
-    transform: translateY(-7px) rotate(8deg);
+    transform: rotate(-8deg);
   }
 }
 
 @keyframes sign-hover-swing {
   0% {
-    transform: rotate(11deg);
+    transform: rotate(8deg);
   }
 
-  28% {
-    transform: rotate(20deg);
+  25% {
+    transform: rotate(18deg);
   }
 
-  58% {
-    transform: rotate(4deg);
+  50% {
+    transform: rotate(-10deg);
   }
 
-  82% {
-    transform: rotate(14deg);
+  75% {
+    transform: rotate(5deg);
   }
 
   100% {
-    transform: rotate(11deg);
+    transform: rotate(0deg);
   }
 }
 
@@ -826,14 +688,16 @@ a {
     left: 7%;
   }
 
-  .heart-doodle {
-    top: 38%;
-    right: 9%;
+  .npm-widget {
+    top: 36%;
+    right: 5%;
+    transform: scale(0.9) rotate(4deg);
   }
 
-  .award-tile {
-    bottom: 13%;
-    left: 7%;
+  .github-badge-cluster {
+    bottom: 12%;
+    left: 4%;
+    transform: scale(0.9) rotate(-4deg);
   }
 
   .winner-card {
