@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import SlideUpLink from "./SlideUpLink";
+import { siteConfig } from "@/config/site";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -44,11 +45,11 @@ export default function Navbar() {
         <SlideUpLink
           href="/"
           className="brand-logo flex items-center justify-center"
-          aria-label="Ayush home"
+          aria-label={`${siteConfig.name} home`}
         >
           <Image
             src="/ayush-logo.png"
-            alt="Ayush Logo"
+            alt={`${siteConfig.name} Logo`}
             width={68}
             height={19}
             className="object-contain"

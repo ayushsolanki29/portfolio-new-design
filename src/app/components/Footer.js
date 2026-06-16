@@ -1,4 +1,5 @@
 import SlideUpLink from "./SlideUpLink";
+import { siteConfig } from "@/config/site";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -73,7 +74,7 @@ export default function Footer({ hideCTA = false }) {
 
         {/* Copyright */}
         <div className="text-center text-[13px] text-neutral-500 font-medium">
-          © 2026. Ayush Solanki. Handcrafted with <span className="text-neutral-800">🖤</span>
+          © {siteConfig.copyrightYear}. {siteConfig.name}. Handcrafted with <span className="text-neutral-800">🖤</span>
         </div>
       </div>
     </footer>
