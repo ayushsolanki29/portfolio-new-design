@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import SlideUpLink from "./SlideUpLink";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -39,19 +41,27 @@ export default function Navbar() {
     >
       <div className="nav-aura" aria-hidden="true" />
       <header className="nav-shell mx-auto flex h-[54px] w-full max-w-[536px] items-center justify-between gap-4 rounded-2xl px-5 relative">
-        <Link
+        <SlideUpLink
           href="/"
-          className="brand-logo text-[15px]"
+          className="brand-logo flex items-center justify-center"
           aria-label="Ayush home"
         >
-          AYUSH        </Link>
+          <Image
+            src="/ayush-logo.png"
+            alt="Ayush Logo"
+            width={68}
+            height={19}
+            className="object-contain"
+            priority
+          />
+        </SlideUpLink>
 
         <nav className="hidden items-center gap-[26px] text-[15px] sm:flex relative">
           {navItems.map((item) => {
             const isActive = pathname === item.path || (pathname === '/' && item.path === '/#home');
 
             return (
-              <Link
+              <SlideUpLink
                 key={item.name}
                 href={item.path}
                 className={`nav-link relative z-10 ${isActive
@@ -60,7 +70,7 @@ export default function Navbar() {
                   }`}
               >
                 {item.name}
-              </Link>
+              </SlideUpLink>
             );
           })}
         </nav>

@@ -1,3 +1,5 @@
+import SlideUpLink from "./SlideUpLink";
+
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Work", path: "/work" },
@@ -63,9 +65,9 @@ export default function Footer({ hideCTA = false }) {
         {/* Footer Navigation */}
         <nav className="flex items-center justify-center gap-8 mb-10 text-[15px] font-medium text-neutral-800">
           {navItems.map((item) => (
-            <a key={item.name} href={item.path} className="hover:text-violet-600 transition-colors">
+            <SlideUpLink key={item.name} href={item.path} className="hover:text-violet-600 transition-colors">
               {item.name}
-            </a>
+            </SlideUpLink>
           ))}
         </nav>
 
