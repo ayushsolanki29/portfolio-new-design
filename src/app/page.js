@@ -199,9 +199,10 @@ export default function Home() {
             </h2>
             <SlideUpLink
               href="#all-work"
-              className="flex items-center gap-1 text-[15px] font-medium text-neutral-950 transition-colors hover:text-violet-600"
+              className="flex items-center gap-1 text-[15px] font-medium text-neutral-950 transition-colors hover:text-violet-600 group"
             >
-              View all <span aria-hidden="true">↗</span>
+              View all
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
             </SlideUpLink>
           </div>
 
@@ -213,7 +214,9 @@ export default function Home() {
               <div className="work-card__tags">
                 <span className="work-tag">Interaction/UX design</span>
                 <span className="work-tag">B2B SaaS</span>
-                <a href="#project-nav" className="work-card__arrow" aria-label="View project">↗</a>
+                <a href="#project-nav" className="work-card__arrow" aria-label="View project">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
+                </a>
               </div>
               <h3 className="work-card__title">Building the navigation 2.0</h3>
               <p className="work-card__desc">
@@ -242,7 +245,9 @@ export default function Home() {
               <div className="work-card__tags">
                 <span className="work-tag">Product Design</span>
                 <span className="work-tag work-tag--muted">Coming Soon</span>
-                <a href="#project-postman" className="work-card__arrow" aria-label="View project">↗</a>
+                <a href="#project-postman" className="work-card__arrow" aria-label="View project">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
+                </a>
               </div>
               <h3 className="work-card__title">Collaboration @ Postman</h3>
               <p className="work-card__desc">
@@ -272,7 +277,9 @@ export default function Home() {
               <div className="work-card__tags">
                 <span className="work-tag">Product Design</span>
                 <span className="work-tag work-tag--award">🏆 Award Winner</span>
-                <a href="#project-findo" className="work-card__arrow" aria-label="View project">↗</a>
+                <a href="#project-findo" className="work-card__arrow" aria-label="View project">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
+                </a>
               </div>
               <h3 className="work-card__title">FinDo - Money made easy</h3>
               <p className="work-card__desc">
@@ -301,7 +308,9 @@ export default function Home() {
               <div className="work-card__tags">
                 <span className="work-tag">UX/Marketing/Growth</span>
                 <span className="work-tag work-tag--muted">Coming Soon</span>
-                <a href="#project-petwarehouse" className="work-card__arrow" aria-label="View project">↗</a>
+                <a href="#project-petwarehouse" className="work-card__arrow" aria-label="View project">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
+                </a>
               </div>
               <h3 className="work-card__title">Growth @ Pet Warehouse</h3>
               <p className="work-card__desc">
