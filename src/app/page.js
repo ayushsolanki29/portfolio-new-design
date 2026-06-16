@@ -4,6 +4,7 @@ import FAQ from "./components/FAQ";
 import Affirmations from "./components/Affirmations";
 import Footer from "./components/Footer";
 import NPMWidget from "./components/NPMWidget";
+import VSCodeWidget from "./components/VSCodeWidget";
 
 const partners = [
   {
@@ -105,19 +106,7 @@ export default function Home() {
 
       <section id="about" className="relative px-5 pb-16 sm:px-8 lg:px-12">
         <div className="wall-canvas mx-auto">
-          <div className="canvas-piece music-widget">
-            <iframe
-              data-testid="embed-iframe"
-              title="I Want It That Way by Backstreet Boys"
-              src="https://open.spotify.com/embed/track/5ThyDv6aRVU8AH4vXQNldF?utm_source=generator"
-              width="100%"
-              height="152"
-              frameBorder="0"
-              allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
-          </div>
+          <VSCodeWidget />
 
           <a href="/contact" className="canvas-piece about-window">
             <Image

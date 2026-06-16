@@ -261,27 +261,16 @@ a {
   filter: drop-shadow(0 18px 18px rgba(15, 23, 42, 0.14));
 }
 
-.music-widget {
+.vscode-widget {
   top: 6%;
   left: 4%;
-  width: 292px;
-  height: 152px;
-  overflow: hidden;
-  border: 2px solid rgba(13, 21, 29, 0.86);
+  width: 250px;
+  height: 140px;
   border-radius: 14px;
-  background: #31536a;
   padding: 0;
   transform: rotate(-4deg);
   animation: canvas-float-a 5.4s ease-in-out infinite;
-}
-
-.music-widget iframe {
-  display: block;
-  width: 100%;
-  height: 152px;
-  border: 0;
-  border-radius: 12px;
-  background: transparent;
+  z-index: 10;
 }
 
 .about-window {
@@ -472,7 +461,7 @@ a {
   margin-top: 19px;
 }
 
-.music-widget:hover,
+.vscode-widget:hover,
 .about-window:hover,
 .smile-doodle:hover,
 .heart-doodle:hover,
@@ -481,7 +470,7 @@ a {
   transform: translateY(-10px) rotate(var(--hover-rotate, 0deg)) scale(1.03);
 }
 
-.music-widget {
+.vscode-widget {
   --hover-rotate: -4deg;
 }
 
@@ -664,10 +653,11 @@ a {
     height: 780px;
   }
 
-  .music-widget {
+  .vscode-widget {
     top: 5%;
     left: 7%;
-    width: 250px;
+    width: 220px;
+    height: 120px;
   }
 
   .about-window {
