@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageShell from "../components/PageShell";
 import PageHero from "../components/PageHero";
 import { IconCheckCircle, IconLinkedIn } from "../components/Icons";
@@ -53,10 +54,13 @@ export default function ContactPage() {
           <div className="bg-[#FCF9F3] rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-sm border border-neutral-100">
             {/* Memoji */}
             <div className="w-[140px] h-[140px] bg-white rounded-full flex items-center justify-center overflow-hidden shadow-sm mb-8">
-              <img
-                src="https://framerusercontent.com/images/XCVNkZ3Jzgp9PlprKmsbrZRkgv0.png"
-                alt="Ayush memoji"
-                className="w-full h-full object-cover scale-110"
+              <Image
+                src="/avatar2.jpeg"
+                alt="Ayush Solanki"
+                width={140}
+                height={140}
+                className="w-full h-full object-cover"
+                priority
               />
             </div>
 

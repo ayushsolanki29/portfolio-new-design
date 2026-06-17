@@ -6,6 +6,8 @@ import {
   Poppins,
 } from "next/font/google";
 import "./globals.css";
+import ContextMenu from "./components/ContextMenu";
+import CursorTrail from "./components/CursorTrail";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,8 +38,91 @@ const nanumPen = Nanum_Pen_Script({
 });
 
 export const metadata = {
-  title: "Ayush | Designer Portfolio",
-  description: "Portfolio home page for Ayush, designer and researcher.",
+  title: {
+    default: "Ayush Solanki | Fullstack Engineer & DevOps",
+    template: "%s | Ayush Solanki",
+  },
+  description:
+    "Ayush Solanki is a Fullstack Engineer with 3+ years of experience building and deploying scalable web applications. Specialising in Node.js, Next.js, React, PostgreSQL, AWS, and CI/CD pipelines.",
+  keywords: [
+    "Fullstack Engineer",
+    "Backend Developer",
+    "Node.js",
+    "Next.js",
+    "React",
+    "Express.js",
+    "PostgreSQL",
+    "MySQL",
+    "AWS",
+    "DevOps",
+    "CI/CD",
+    "Nginx",
+    "REST API",
+    "BullMQ",
+    "Redis",
+    "Razorpay",
+    "Stripe",
+    "PHP",
+    "Prisma ORM",
+    "Ayush Solanki",
+    "Portfolio",
+  ],
+  authors: [{ name: "Ayush Solanki", url: "https://github.com/ayushsolanki29" }],
+  creator: "Ayush Solanki",
+  publisher: "Ayush Solanki",
+  metadataBase: new URL("https://ayushsolanki.site"),
+  alternates: {
+    canonical: "/",
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "Ayush Solanki",
+    title: "Ayush Solanki | Fullstack Engineer & DevOps",
+    description:
+      "Fullstack Engineer with 3+ years building production SaaS platforms, REST APIs, and cloud infrastructure on AWS. Node.js · Next.js · PostgreSQL · CI/CD.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ayush Solanki — Fullstack Engineer & DevOps",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@ayushsolanki29",
+    creator: "@ayushsolanki29",
+    title: "Ayush Solanki | Fullstack Engineer & DevOps",
+    description:
+      "Building and shipping 15+ live production apps with Node.js, Next.js, PostgreSQL, and AWS. 3+ years of fullstack & DevOps experience.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  appleWebApp: {
+    title: "Ayush Solanki",
+    capable: true,
+  },
+  other: {
+    "msapplication-TileColor": "#ffffff",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -46,7 +131,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${averiaSerif.variable} ${poppins.variable} ${nanumPen.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <CursorTrail />
+        <ContextMenu />
+        {children}
+      </body>
     </html>
   );
 }

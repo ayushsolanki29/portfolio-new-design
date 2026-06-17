@@ -1,5 +1,5 @@
 import SlideUpLink from "./SlideUpLink";
-import { IconLinkedIn } from "./Icons";
+import CTACard from "./CTACard";
 import { siteConfig, navItems } from "@/config/site";
 
 export default function Footer({ hideCTA = false }) {
@@ -7,33 +7,7 @@ export default function Footer({ hideCTA = false }) {
     <footer className="px-5 pb-10 sm:px-8 lg:px-12 pt-16">
       <div className="mx-auto max-w-5xl">
         {/* CTA Card */}
-        {!hideCTA && (
-          <div className="bg-[#fdf5e8] rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-10">
-            <div className="max-w-xl text-center md:text-left">
-              <h2 className="text-[40px] sm:text-[48px] font-bold text-neutral-900 font-serif-display leading-tight mb-4">
-                Let's work together?
-              </h2>
-              <p className="text-[17px] text-neutral-600 leading-relaxed mb-8">
-                Want to talk about design, ideas, tech, coffee, music or just anything in general? Feel free to hit me up!
-              </p>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-200 bg-white hover:bg-neutral-50 transition-colors text-neutral-800 font-medium text-[15px] shadow-sm"
-              >
-                <IconLinkedIn width={18} height={18} className="text-neutral-500" />
-                Send message
-              </a>
-            </div>
-
-            <div className="flex-shrink-0 relative">
-              <div className="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] bg-white rounded-full flex items-center justify-center p-6 text-center shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-                <span className="font-serif-display text-[32px] sm:text-[40px] font-bold text-neutral-900 leading-[1.1] tracking-tight">
-                  Know more<br />about me...
-                </span>
-              </div>
-            </div>
-          </div>
-        )}
+        {!hideCTA && <CTACard />}
 
         {/* Decorative Divider */}
         <div className="mt-20 mb-12 flex items-center justify-center">

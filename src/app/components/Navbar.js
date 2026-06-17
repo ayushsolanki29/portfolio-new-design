@@ -71,7 +71,8 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4">
           <a
-            href="/#resume"
+            href={siteConfig.resumePath}
+            download={siteConfig.resumeFileName}
             className="nav-resume h-[38px] rounded-xl border border-black/10 px-[17px] text-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] flex items-center justify-center"
           >
             Resume

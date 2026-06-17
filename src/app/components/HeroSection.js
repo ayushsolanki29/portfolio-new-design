@@ -46,13 +46,13 @@ export default function HeroSection() {
       >
         <h1 className="font-serif-display mx-auto max-w-[1040px] text-[51px] font-bold leading-[0.98] text-neutral-950 sm:text-[75px] lg:text-[82px]">
           <span className="block whitespace-normal lg:whitespace-nowrap">
-            I see, I think, I design
+            I build, I ship, I scale
           </span>
-          <span className="block">then I overthink.</span>
+          <span className="block">then I optimize.</span>
         </h1>
 
         <p className="mt-[16px] max-w-2xl text-[19px] font-normal leading-tight text-slate-900">
-          An ally for cause, a full-time designer and researcher.
+          Fullstack Engineer — Node.js, Next.js, AWS & beyond.
         </p>
 
         <div className="mt-[22px] flex flex-wrap items-center justify-center gap-[10px] text-[12px] font-bold">
@@ -60,7 +60,10 @@ export default function HeroSection() {
             3+ years of experience
           </span>
           <span className="rounded-md bg-violet-100 px-[7px] py-[3px] text-violet-700">
-            Senior Software Engineer @ GIPL
+            Production Engineer @ GIPL
+          </span>
+          <span className="rounded-md bg-amber-100 px-[7px] py-[3px] text-amber-700">
+            🏆 Employee of the Month — Jul 2025
           </span>
         </div>
 

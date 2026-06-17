@@ -12,10 +12,10 @@ export default function AboutPage() {
         heading="Still finding myself..."
         subtitle={
           <>
-            An engineer <span aria-hidden="true">&gt;</span> designer, a
-            thinker, an ally who's not afraid to speak his mind. You'll find me
-            owning the truth, questioning what I see, lingering on the little
-            things.
+            An engineer who builds things that scale. Full-stack at heart,
+            DevOps by necessity, and a thinker who's not afraid to speak his
+            mind. You'll find me owning the truth, questioning what I see,
+            lingering on the little things.
           </>
         }
         className="pb-24"

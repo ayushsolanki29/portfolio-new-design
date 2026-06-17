@@ -1,12 +1,26 @@
 export const siteConfig = {
   name: "Ayush Solanki",
   shortName: "AYUSH",
-  email: "ayushsolanki@gmail.com",
+  title: "Fullstack Engineer & DevOps",
+  tagline: "Fullstack Engineer | DevOps & Cloud Deployment",
+  email: "ayushsolanki2901@gmail.com",
+  phone: "+91 9723054735",
+  location: "Ahmedabad, Gujarat, India",
+  website: "https://ayushsolanki.site",
+  resumePath: "https://docs.google.com/document/d/1U0D_T4VzdoEKCTOQYwhPdtWXZwhVTmqC/edit?usp=sharing&ouid=108383743240215142495&rtpof=true&sd=true",
+  resumeFileName: "Ayush_Solanki_Resume.pdf",
   socials: {
     github: "https://github.com/ayushsolanki29",
     linkedin: "https://linkedin.com/in/ayushsolanki",
   },
   copyrightYear: "2026",
+};
+
+export const ctaConfig = {
+  heading: "Let's work together?",
+  body: "Want to talk about design, ideas, tech, coffee, music or just anything in general? Feel free to hit me up!",
+  buttonLabel: "Send message",
+  buttonHref: "/contact",
 };
 
 export const navItems = [
