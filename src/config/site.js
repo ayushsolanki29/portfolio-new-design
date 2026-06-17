@@ -8,3 +8,10 @@ export const siteConfig = {
   },
   copyrightYear: "2026",
 };
+
+export const navItems = [
+  { name: "Home", path: "/" },
+  { name: "Work", path: "/work" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];

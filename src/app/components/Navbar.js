@@ -5,14 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import SlideUpLink from "./SlideUpLink";
-import { siteConfig } from "@/config/site";
-
-const navItems = [
-  { name: "Home", path: "/" },
-  { name: "Work", path: "/work" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" }
-];
+import { siteConfig, navItems } from "@/config/site";
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true);

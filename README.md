@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ayush Solanki — Portfolio
+
+Personal portfolio website of **Ayush Solanki**, Full Stack Developer. Built with Next.js, React 19, and Tailwind CSS v4.
+
+🔗 **Repo:** [github.com/ayushsolanki29/portfolio-new-design](https://github.com/ayushsolanki29/portfolio-new-design)  
+👤 **Author:** [Ayush Solanki](https://github.com/ayushsolanki29)  
+📧 **Email:** ayushsolanki@gmail.com  
+💼 **LinkedIn:** [linkedin.com/in/ayushsolanki](https://linkedin.com/in/ayushsolanki)
+
+---
+
+## Tech Stack
+
+| Technology | Version |
+|---|---|
+| [Next.js](https://nextjs.org) | 16.2.6 |
+| [React](https://react.dev) | 19.2.4 |
+| [Tailwind CSS](https://tailwindcss.com) | v4 |
+
+---
+
+## Features
+
+- Hero section with personal introduction
+- Work / projects showcase
+- Testimonials section
+- Tools & tech stack section
+- Timeline / experience section
+- Music section
+- FAQ section
+- Contact page
+- About page
+- Responsive design with Tailwind CSS
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm / yarn / pnpm / bun
+
+### Installation
+
+```bash
+git clone https://github.com/ayushsolanki29/portfolio-new-design.git
+cd portfolio-new-design
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+src/
+├── app/
+│   ├── about/          # About page
+│   ├── contact/        # Contact page
+│   ├── work/           # Work/projects page
+│   ├── components/     # Reusable UI components
+│   ├── globals.css     # Global styles
+│   ├── layout.js       # Root layout
+│   └── page.js         # Home page
+└── config/
+    └── site.js         # Site-wide configuration (name, socials, etc.)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+[MIT](LICENSE) © 2026 [Ayush Solanki](https://github.com/ayushsolanki29)

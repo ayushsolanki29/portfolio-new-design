@@ -50,24 +50,9 @@ export default function MusicSection() {
 
         {/* Marquee Wrapper */}
         <div className="relative w-full overflow-hidden flex items-center">
-          {/* Edge fades for smooth entry/exit */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
-
-          <style jsx>{`
-            @keyframes music-scroll {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-33.333333%); }
-            }
-            .music-marquee {
-              display: flex;
-              width: max-content;
-              animation: music-scroll 20s linear infinite;
-            }
-            .music-marquee:hover {
-              animation-play-state: paused;
-            }
-          `}</style>
+          {/* Edge fades */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
 
           <div className="music-marquee gap-10 sm:gap-14 px-8 py-4">
             {repeatedAlbums.map((album, index) => {
