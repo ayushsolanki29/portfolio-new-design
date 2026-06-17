@@ -1,39 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const faqData = [
-  {
-    question: "What is my experience like?",
-    answer:
-      "I have ~3.5 yrs total experience in data-driven UX, systems thinking, scaling SaaS products & AI UX, and some in B2C via freelance as well",
-  },
-  {
-    question: "What makes me stand out?",
-    answer:
-      "I blend creativity with deep analytical thinking. I don't just design interfaces; I solve complex product problems and align user needs with business goals.",
-  },
-  {
-    question: "What are my values?",
-    answer:
-      "Empathy, collaboration, and continuous learning. I believe in designing with people, not just for them, and always iterating based on feedback.",
-  },
-  {
-    question: "How I measure success?",
-    answer:
-      "By looking at both qualitative user feedback and quantitative metrics like task completion rate, time on task, and overall user satisfaction.",
-  },
-  {
-    question: "What is my working style?",
-    answer:
-      "Highly collaborative and iterative. I like to involve stakeholders early, prototype quickly, and validate assumptions through testing.",
-  },
-  {
-    question: "Do I offer freelance services?",
-    answer:
-      "Yes, I am open to select freelance opportunities depending on my current bandwidth. Feel free to reach out to discuss potential projects.",
-  },
-];
+import { faqData } from "@/config/site";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0); // First one open by default as in the image
