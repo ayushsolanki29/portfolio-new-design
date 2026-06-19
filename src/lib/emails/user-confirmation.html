@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanks for reaching out!</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333333;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+    .header {
+      background-color: #111111;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .header h1 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .content {
+      padding: 40px 30px;
+    }
+    .content p {
+      margin: 0 0 20px;
+      font-size: 16px;
+    }
+    .quote {
+      background-color: #f5f5f5;
+      border-left: 4px solid #111111;
+      padding: 16px 20px;
+      border-radius: 4px 8px 8px 4px;
+      font-style: italic;
+      color: #555555;
+      margin: 30px 0;
+    }
+    .footer {
+      border-top: 1px solid #eeeeee;
+      padding: 30px;
+      text-align: center;
+      color: #888888;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Message Received! 🚀</h1>
+    </div>
+    <div class="content">
+      <p>Hi {{name}},</p>
+      <p>Thanks for reaching out! I've successfully received your message and I'll get back to you as soon as possible.</p>
+      
+      <p>For your records, here's what you sent me:</p>
+      <div class="quote">
+        {{message}}
+      </div>
+      
+      <p>If you have any extra details to add in the meantime, simply hit <strong>Reply</strong> to this email!</p>
+      
+      <p>Best regards,<br><strong>Ayush Solanki</strong></p>
+    </div>
+    <div class="footer">
+      This is an automated confirmation from ayushsolanki.site
+    </div>
+  </div>
+</body>
+</html>

@@ -77,6 +77,7 @@ export default function Navbar() {
               width={68}
               height={19}
               className="object-contain"
+              style={{ width: "auto", height: "auto" }}
               priority
             />
           </SlideUpLink>

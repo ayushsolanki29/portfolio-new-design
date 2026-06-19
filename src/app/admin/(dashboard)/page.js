@@ -19,12 +19,14 @@ export default async function AdminDashboardPage() {
     { count: footfallCount }, 
     { count: engagementCount }, 
     { count: clicksCount },
-    chartData
+    chartData,
+    { data: recentMessages }
   ] = await Promise.all([
     supabase.from("analytics_events").select("*", { count: "exact", head: true }).eq("event_type", "page_view"),
     supabase.from("analytics_events").select("*", { count: "exact", head: true }).eq("event_type", "engagement"),
     supabase.from("analytics_events").select("*", { count: "exact", head: true }).eq("event_type", "click"),
-    getVisitorTraffic()
+    getVisitorTraffic(),
+    supabase.from("messages").select("*").order("created_at", { ascending: false }).limit(5)
   ]);
 
   const totalFootfall = footfallCount || 0;
@@ -91,15 +93,19 @@ export default async function AdminDashboardPage() {
             <CardDescription>Latest contact form submissions</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-4">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-100">
-                <div className="w-8 h-8 rounded-full bg-neutral-200 flex-shrink-0" />
+            {recentMessages && recentMessages.length > 0 ? recentMessages.map((msg, i) => (
+              <div key={msg.id || i} className="flex items-start gap-4 p-4 rounded-2xl bg-neutral-50 border border-neutral-100">
+                <div className="w-8 h-8 rounded-full bg-neutral-200 flex-shrink-0 flex items-center justify-center text-xs font-bold text-neutral-500">
+                  {msg.name?.charAt(0).toUpperCase()}
+                </div>
                 <div>
-                  <div className="text-sm font-semibold text-neutral-900">User {i}</div>
-                  <div className="text-xs text-neutral-500 line-clamp-1 mt-0.5">Hey Ayush, love the new design...</div>
+                  <div className="text-sm font-semibold text-neutral-900">{msg.name}</div>
+                  <div className="text-xs text-neutral-500 line-clamp-1 mt-0.5">{msg.message}</div>
                 </div>
               </div>
-            ))}
+            )) : (
+              <div className="text-sm text-neutral-500 p-4">No recent messages.</div>
+            )}
           </CardContent>
         </Card>
       </div>
