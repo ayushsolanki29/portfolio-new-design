@@ -34,7 +34,7 @@ export default async function ProjectPage({ params }) {
     <PageShell>
       {/* ── Hero ──────────────────────────────────────────── */}
       <section
-        className="relative pt-[140px] sm:pt-[160px] pb-16 px-5 sm:px-8 lg:px-12"
+        className="relative pt-[120px] sm:pt-[160px] pb-12 sm:pb-16 px-5 sm:px-8 lg:px-12"
         style={{ background: accentColor }}
       >
         <div
@@ -47,7 +47,7 @@ export default async function ProjectPage({ params }) {
           {/* Back link */}
           <Link
             href="/work"
-            className="inline-flex items-center gap-2 text-[13px] font-medium text-neutral-500 hover:text-neutral-900 transition-colors mb-8 group"
+            className="inline-flex items-center gap-2 text-[13px] font-medium text-neutral-500 hover:text-neutral-900 transition-colors mb-6 sm:mb-8 group"
           >
             <IconArrowLeft
               width={16}
@@ -58,7 +58,7 @@ export default async function ProjectPage({ params }) {
           </Link>
 
           {/* Tags */}
-          <div className="flex flex-wrap items-center gap-2 mb-5">
+          <div className="flex flex-wrap items-center gap-2 mb-4 sm:mb-5">
             {tags.map((tag, i) => (
               <span
                 key={i}
@@ -69,15 +69,15 @@ export default async function ProjectPage({ params }) {
             ))}
           </div>
 
-          <h1 className="font-serif-display text-[40px] sm:text-[56px] lg:text-[64px] font-bold text-neutral-950 leading-tight mb-4">
+          <h1 className="font-serif-display text-[36px] sm:text-[56px] lg:text-[64px] font-bold text-neutral-950 leading-tight mb-3 sm:mb-4">
             {title}
           </h1>
-          <p className="text-[17px] sm:text-[19px] text-neutral-600 leading-relaxed max-w-2xl">
+          <p className="text-[16px] sm:text-[19px] text-neutral-600 leading-relaxed max-w-2xl">
             {tagline}
           </p>
 
           {/* Meta row */}
-          <div className="mt-10 flex flex-wrap gap-6 sm:gap-10">
+          <div className="mt-8 sm:mt-10 flex flex-wrap gap-6 sm:gap-10">
             {[
               { label: "Role", value: role },
               { label: "Year", value: year },
@@ -134,14 +134,13 @@ export default async function ProjectPage({ params }) {
       <section className="px-5 sm:px-8 lg:px-12 -mt-6">
         <div className="mx-auto max-w-4xl">
           <div
-            className="w-full rounded-2xl overflow-hidden border border-black/5 shadow-sm flex items-center justify-center"
+            className="w-full h-[240px] sm:h-[360px] rounded-2xl overflow-hidden border border-black/5 shadow-sm flex items-center justify-center"
             style={{
               background: `linear-gradient(135deg, ${accentColor}, white)`,
-              height: "360px",
             }}
             aria-label="Project preview"
           >
-            <span className="text-[13px] font-mono tracking-widest uppercase text-neutral-400">
+            <span className="text-[12px] sm:text-[13px] font-mono tracking-widest uppercase text-neutral-400">
               Project preview
             </span>
           </div>
@@ -149,11 +148,11 @@ export default async function ProjectPage({ params }) {
       </section>
 
       {/* ── Content ───────────────────────────────────────── */}
-      <section className="px-5 sm:px-8 lg:px-12 py-20">
+      <section className="px-5 sm:px-8 lg:px-12 py-12 sm:py-20">
         <div className="mx-auto max-w-4xl">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-16">
             {/* Main content */}
-            <div className="space-y-14">
+            <div className="space-y-10 sm:space-y-14">
               {[
                 { label: "Overview", body: overview },
                 { label: "The Problem", body: problem },
@@ -169,7 +168,7 @@ export default async function ProjectPage({ params }) {
             {/* Sidebar — Impact */}
             <aside>
               <div
-                className="rounded-2xl p-6 sticky top-[100px]"
+                className="rounded-2xl p-5 sm:p-6 sticky top-[100px]"
                 style={{ background: accentColor }}
               >
                 <h3 className="text-[11px] font-semibold uppercase tracking-widest text-neutral-500 mb-4">
@@ -210,7 +209,7 @@ function ProjectNav({ currentSlug }) {
   return (
     <nav
       aria-label="Project navigation"
-      className="border-t border-neutral-100 px-5 sm:px-8 lg:px-12 py-10"
+      className="border-t border-neutral-100 px-5 sm:px-8 lg:px-12 py-8 sm:py-10"
     >
       <div className="mx-auto max-w-4xl flex items-center justify-between gap-4">
         {prev ? (
@@ -226,7 +225,7 @@ function ProjectNav({ currentSlug }) {
               />
               Previous
             </span>
-            <span className="text-[15px] font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors line-clamp-1">
+            <span className="text-[14px] sm:text-[15px] font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors line-clamp-1">
               {prev.title}
             </span>
           </Link>
@@ -247,7 +246,7 @@ function ProjectNav({ currentSlug }) {
                 className="transition-transform group-hover:translate-x-0.5"
               />
             </span>
-            <span className="text-[15px] font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors line-clamp-1">
+            <span className="text-[14px] sm:text-[15px] font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors line-clamp-1">
               {next.title}
             </span>
           </Link>

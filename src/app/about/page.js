@@ -18,10 +18,10 @@ export default function AboutPage() {
             lingering on the little things.
           </>
         }
-        className="pb-24"
+        className="pb-12 sm:pb-24"
       >
         {/* Photo Fan Gallery */}
-        <div className="mt-20 relative flex justify-center items-center w-full max-w-4xl mx-auto h-[280px] sm:h-[340px]">
+        <div className="mt-10 sm:mt-20 relative flex justify-center items-center w-full max-w-4xl mx-auto h-[220px] sm:h-[340px] transform scale-[0.65] sm:scale-100 origin-top sm:origin-center">
           {[
             {
               src: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=600&auto=format&fit=crop",

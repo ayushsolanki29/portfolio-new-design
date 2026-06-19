@@ -10,16 +10,16 @@ export default function ContactPage() {
       <PageHero
         heading="Let's talk ?"
         subtitle="If you have any ideas, queries, freelance work, do write to me, or if you just want to be friends with someone like me :D"
-        className="pb-16"
+        className="pb-12 sm:pb-16"
         auraStyle={{ opacity: 0.6 }}
       />
 
       {/* Form and Contact Info Grid */}
-      <section className="px-5 pb-24 sm:px-8 lg:px-12 max-w-5xl mx-auto relative z-10">
+      <section className="px-5 pb-16 sm:pb-24 sm:px-8 lg:px-12 max-w-5xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-8 md:gap-12">
 
           {/* Left: Contact Form */}
-          <div className="flex flex-col gap-6 pt-4">
+          <div className="flex flex-col gap-5 sm:gap-6 pt-0 sm:pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
@@ -51,9 +51,9 @@ export default function ContactPage() {
           </div>
 
           {/* Right: Info Card */}
-          <div className="bg-[#FCF9F3] rounded-3xl p-8 flex flex-col items-center justify-center text-center shadow-sm border border-neutral-100">
+          <div className="bg-[#FCF9F3] rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm border border-neutral-100">
             {/* Memoji */}
-            <div className="w-[140px] h-[140px] bg-white rounded-full flex items-center justify-center overflow-hidden shadow-sm mb-8">
+            <div className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] bg-white rounded-full flex items-center justify-center overflow-hidden shadow-sm mb-6 sm:mb-8">
               <Image
                 src="/avatar2.jpeg"
                 alt="Ayush Solanki"

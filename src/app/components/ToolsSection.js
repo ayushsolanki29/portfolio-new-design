@@ -21,17 +21,17 @@ export default function ToolsSection() {
   ];
 
   return (
-    <section className="px-5 py-24 sm:px-8 lg:px-12 max-w-5xl mx-auto">
-      <div className="bg-white rounded-[32px] border border-neutral-200/60 shadow-sm p-10 sm:p-16 text-center">
+    <section className="px-5 py-12 sm:py-24 sm:px-8 lg:px-12 max-w-5xl mx-auto">
+      <div className="bg-white rounded-[32px] border border-neutral-200/60 shadow-sm p-6 sm:p-16 text-center">
         <h2 className="font-serif-display text-[32px] sm:text-[40px] font-bold text-neutral-900 mb-2">
           Tools I use
         </h2>
-        <p className="text-[15px] sm:text-[17px] text-neutral-500 mb-12">
+        <p className="text-[14px] sm:text-[17px] text-neutral-500 mb-8 sm:mb-12">
           This is how I create most of my magic
         </p>
 
         {/* Tool Grid */}
-        <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-10">
           {tools.map((tool) => (
             <div 
               key={tool.name}

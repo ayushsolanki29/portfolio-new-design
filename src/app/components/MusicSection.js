@@ -39,12 +39,12 @@ export default function MusicSection() {
   const repeatedAlbums = [...albums, ...albums, ...albums];
 
   return (
-    <section className="px-5 pb-24 sm:px-8 lg:px-12 max-w-5xl mx-auto">
-      <div className="bg-white rounded-[32px] border border-neutral-200/60 shadow-sm py-10 sm:py-16 text-center overflow-hidden relative">
-        <h2 className="font-serif-display text-[32px] sm:text-[40px] font-bold text-neutral-900 mb-2 px-10">
+    <section className="px-5 pb-12 sm:pb-24 sm:px-8 lg:px-12 max-w-5xl mx-auto">
+      <div className="bg-white rounded-[32px] border border-neutral-200/60 shadow-sm py-8 sm:py-16 text-center overflow-hidden relative">
+        <h2 className="font-serif-display text-[32px] sm:text-[40px] font-bold text-neutral-900 mb-2 px-6 sm:px-10">
           What I'm listening to
         </h2>
-        <p className="text-[15px] sm:text-[17px] text-neutral-500 mb-16 px-10">
+        <p className="text-[14px] sm:text-[17px] text-neutral-500 mb-10 sm:mb-16 px-6 sm:px-10">
           My music taste is more chaotic than my git branches
         </p>
 

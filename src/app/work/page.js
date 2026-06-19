@@ -34,25 +34,25 @@ export default function WorkPage() {
             ))}
 
             {/* CTA Card */}
-            <div className="group relative flex flex-col overflow-hidden rounded-[32px] bg-white border border-dashed border-neutral-300 p-8 sm:p-10 transition-transform duration-300 hover:-translate-y-1">
+            <div className="group relative flex flex-col overflow-hidden rounded-[32px] bg-white border border-dashed border-neutral-300 p-6 sm:p-10 transition-transform duration-300 hover:-translate-y-1">
               <div className="relative z-10 flex flex-col items-start h-full">
-                <div className="flex flex-wrap items-center gap-2 mb-6">
-                  <span className="rounded-full bg-neutral-100 px-3 py-1 text-[11px] font-bold text-neutral-600 tracking-wide uppercase">
+                <div className="flex flex-wrap items-center gap-2 mb-5 sm:mb-6">
+                  <span className="rounded-full bg-neutral-100 px-3 py-1 text-[10px] sm:text-[11px] font-bold text-neutral-600 tracking-wide uppercase">
                     Product type
                   </span>
-                  <span className="rounded-full bg-neutral-100 px-3 py-1 text-[11px] font-bold text-neutral-600 tracking-wide uppercase">
+                  <span className="rounded-full bg-neutral-100 px-3 py-1 text-[10px] sm:text-[11px] font-bold text-neutral-600 tracking-wide uppercase">
                     Your industry
                   </span>
                 </div>
-                <h3 className="font-serif-display text-[26px] font-bold text-neutral-950 mb-3">
+                <h3 className="font-serif-display text-[24px] sm:text-[26px] font-bold text-neutral-950 mb-2 sm:mb-3">
                   Next could be ours...
                 </h3>
-                <p className="text-[15px] leading-relaxed text-neutral-600">
+                <p className="text-[14px] sm:text-[15px] leading-relaxed text-neutral-600">
                   Let's build something together?
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#111111] text-white px-5 py-2.5 text-[13px] font-semibold hover:bg-neutral-700 transition-colors"
+                  className="mt-5 sm:mt-6 inline-flex items-center gap-2 rounded-full bg-[#111111] text-white px-5 py-2.5 text-[13px] font-semibold hover:bg-neutral-700 transition-colors"
                 >
                   Get in touch
                   <IconArrowNE width={13} height={13} />

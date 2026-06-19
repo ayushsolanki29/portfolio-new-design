@@ -74,13 +74,13 @@ export default function Timeline() {
   ];
 
   return (
-    <section className="px-5 py-24 sm:px-8 lg:px-12 max-w-6xl mx-auto flex flex-col md:flex-row relative">
+    <section className="px-5 py-12 sm:py-24 sm:px-8 lg:px-12 max-w-6xl mx-auto flex flex-col md:flex-row relative">
       
       {/* Left Column (Sticky Header) */}
-      <div className="md:w-1/3 mb-16 md:mb-0 relative z-10">
+      <div className="md:w-1/3 mb-12 sm:mb-16 md:mb-0 relative z-10">
         <div className="sticky top-[120px]">
-          <h2 className="font-serif-display text-[40px] sm:text-[48px] font-bold flex items-center gap-3 text-neutral-900">
-            <span aria-hidden="true" className="text-[32px] sm:text-[40px]">✦</span> Timeline
+          <h2 className="font-serif-display text-[32px] sm:text-[48px] font-bold flex items-center gap-3 text-neutral-900">
+            <span aria-hidden="true" className="text-[28px] sm:text-[40px]">✦</span> Timeline
           </h2>
         </div>
       </div>
