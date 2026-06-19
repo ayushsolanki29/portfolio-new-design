@@ -1,21 +1,57 @@
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import { Plus, FolderGit2, ExternalLink } from "lucide-react";
+import { Plus, FolderGit2, ExternalLink, Pencil } from "lucide-react";
 import { DeleteProjectButton } from "@/components/admin/DeleteProjectButton";
+import ProjectFilters from "@/components/admin/ProjectFilters";
+import ProjectPagination from "@/components/admin/ProjectPagination";
+import { getProjectMetadataOptions } from "@/app/actions/project";
 import { CldImage } from "next-cloudinary";
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
-export default async function AdminProjectsPage() {
+export default async function AdminProjectsPage({ searchParams }) {
+  const { query, category, sort, page } = await searchParams;
+  
   const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
 
-  const { data: projects, error } = await supabase
-    .from("projects")
-    .select("*")
-    .order("created_at", { ascending: false });
+  // Fetch unique categories for the filter dropdown
+  const { categories } = await getProjectMetadataOptions();
+
+  // Build the query
+  let queryBuilder = supabase.from("projects").select("*", { count: "exact" });
+
+  if (query) {
+    // Search in title, subtitle, or role
+    queryBuilder = queryBuilder.or(`title.ilike.%${query}%,subtitle.ilike.%${query}%,role.ilike.%${query}%`);
+  }
+
+  if (category) {
+    queryBuilder = queryBuilder.eq("category", category);
+  }
+
+  if (sort === "oldest") {
+    queryBuilder = queryBuilder.order("created_at", { ascending: true });
+  } else if (sort === "title-asc") {
+    queryBuilder = queryBuilder.order("title", { ascending: true });
+  } else if (sort === "title-desc") {
+    queryBuilder = queryBuilder.order("title", { ascending: false });
+  } else {
+    // newest by default
+    queryBuilder = queryBuilder.order("created_at", { ascending: false });
+  }
+
+  // Pagination
+  const PAGE_SIZE = 6;
+  const pageIndex = parseInt(page) || 1;
+  const from = (pageIndex - 1) * PAGE_SIZE;
+  const to = from + PAGE_SIZE - 1;
+
+  queryBuilder = queryBuilder.range(from, to);
+
+  const { data: projects, count, error } = await queryBuilder;
 
   if (error) {
     console.error("Error fetching projects:", error);
@@ -36,6 +72,8 @@ export default async function AdminProjectsPage() {
           Add Project
         </Link>
       </div>
+
+      <ProjectFilters categories={categories} />
 
       {projects && projects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -77,6 +115,12 @@ export default async function AdminProjectsPage() {
                     >
                       <ExternalLink className="h-4 w-4" />
                     </Link>
+                    <Link 
+                      href={`/admin/projects/${project.id}/edit`} 
+                      className="inline-flex items-center justify-center h-9 w-9 rounded-xl bg-neutral-50 hover:bg-emerald-50 text-neutral-600 hover:text-emerald-600 transition-colors"
+                    >
+                      <Pencil className="h-4 w-4" />
+                    </Link>
                     <DeleteProjectButton id={project.id} imageUrl={project.preview_image} />
                   </div>
                 </div>
@@ -101,6 +145,10 @@ export default async function AdminProjectsPage() {
             Create First Project
           </Link>
         </div>
+      )}
+
+      {projects && projects.length > 0 && (
+        <ProjectPagination totalItems={count || 0} pageSize={PAGE_SIZE} />
       )}
     </div>
   );

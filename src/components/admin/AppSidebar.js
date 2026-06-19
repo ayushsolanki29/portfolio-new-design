@@ -11,7 +11,7 @@ import {
   SidebarHeader,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { Home, FolderDot, Mail, Settings, User } from "lucide-react";
+import { Home, FolderDot, Mail, Settings, User, BarChart3 } from "lucide-react";
 
 export function AppSidebar() {
   return (
@@ -36,6 +36,12 @@ export function AppSidebar() {
                 <SidebarMenuButton render={<Link href="/admin" className="gap-3 font-medium text-neutral-700 hover:text-neutral-950" />}>
                   <Home className="w-4 h-4" />
                   <span>Dashboard</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton render={<Link href="/admin/analytics" className="gap-3 font-medium text-neutral-700 hover:text-neutral-950" />}>
+                  <BarChart3 className="w-4 h-4" />
+                  <span>Analytics</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>

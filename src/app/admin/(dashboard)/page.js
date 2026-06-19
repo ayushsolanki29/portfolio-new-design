@@ -6,13 +6,40 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Activity, MousePointerClick, Users, Eye } from "lucide-react";
+import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
+import { getVisitorTraffic } from "@/app/actions/analytics";
+import VisitorChart from "@/components/admin/VisitorChart";
 
-export default function AdminDashboardPage() {
+export default async function AdminDashboardPage() {
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+
+  const [
+    { count: footfallCount }, 
+    { count: engagementCount }, 
+    { count: clicksCount },
+    chartData
+  ] = await Promise.all([
+    supabase.from("analytics_events").select("*", { count: "exact", head: true }).eq("event_type", "page_view"),
+    supabase.from("analytics_events").select("*", { count: "exact", head: true }).eq("event_type", "engagement"),
+    supabase.from("analytics_events").select("*", { count: "exact", head: true }).eq("event_type", "click"),
+    getVisitorTraffic()
+  ]);
+
+  const totalFootfall = footfallCount || 0;
+  const engagements = engagementCount || 0;
+  const clicks = clicksCount || 0;
+  
+  const engagementRate = totalFootfall > 0 
+    ? ((engagements / totalFootfall) * 100).toFixed(1) + "%"
+    : "0%";
+
   const metrics = [
-    { title: "Total Views", value: "24,593", change: "+12.5%", icon: Eye },
-    { title: "Unique Visitors", value: "8,204", change: "+5.2%", icon: Users },
-    { title: "Engagement Rate", value: "64.8%", change: "+1.1%", icon: Activity },
-    { title: "Clicks", value: "1,249", change: "-2.4%", icon: MousePointerClick },
+    { title: "Total Footfall", value: totalFootfall.toLocaleString(), change: "Live", icon: Eye },
+    { title: "Unique Visitors", value: totalFootfall.toLocaleString(), change: "Live", icon: Users },
+    { title: "Engagement Rate", value: engagementRate, change: "Live", icon: Activity },
+    { title: "Clicks", value: clicks.toLocaleString(), change: "Live", icon: MousePointerClick },
   ];
 
   return (
@@ -53,8 +80,8 @@ export default function AdminDashboardPage() {
             <CardTitle>Visitor Traffic</CardTitle>
             <CardDescription>Views over the last 30 days</CardDescription>
           </CardHeader>
-          <CardContent className="flex items-center justify-center h-[300px] text-neutral-400 border-2 border-dashed border-neutral-100 rounded-2xl m-6 mt-0 bg-neutral-50/50">
-            Chart Placeholder
+          <CardContent className="pt-0">
+            <VisitorChart data={chartData} />
           </CardContent>
         </Card>
 

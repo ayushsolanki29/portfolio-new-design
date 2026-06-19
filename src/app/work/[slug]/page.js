@@ -3,15 +3,18 @@ import Link from "next/link";
 import PageShell from "../../components/PageShell";
 import TechBubbles from "../../components/TechBubbles";
 import { IconArrowNE, IconArrowLeft, IconArrowRight } from "../../components/Icons";
-import { projects, getProjectBySlug } from "../../../config/projects";
+import BlocksRenderer from "@/components/BlocksRenderer";
+import { createClient } from "@supabase/supabase-js";
 
-export async function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
-}
+// Initialize public client
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+);
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { data: project } = await supabase.from("projects").select("*").eq("slug", slug).single();
   if (!project) return {};
   return {
     title: `${project.title} — Ayush Solanki`,
@@ -21,14 +24,21 @@ export async function generateMetadata({ params }) {
 
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { data: project } = await supabase.from("projects").select("*").eq("slug", slug).single();
+  
   if (!project) notFound();
 
   const {
-    title, tagline, accentColor, year, role, duration,
-    tags, techStack, overview, problem, solution, impact,
-    liveUrl, githubUrl,
+    title, subtitle: tagline, accent_color: accentColor, year, role, duration,
+    tags, built_with: techStack, overview, preview_image,
+    live_url: liveUrl, github_url: githubUrl,
   } = project;
+
+  // We need to fetch all projects to figure out the previous/next navigation
+  const { data: allProjects } = await supabase
+    .from("projects")
+    .select("title, slug")
+    .order("created_at", { ascending: false });
 
   return (
     <PageShell>
@@ -59,12 +69,12 @@ export default async function ProjectPage({ params }) {
 
           {/* Tags */}
           <div className="flex flex-wrap items-center gap-2 mb-4 sm:mb-5">
-            {tags.map((tag, i) => (
+            {tags && tags.map((tag, i) => (
               <span
                 key={i}
-                className={`work-tag ${tag.type === "award" ? "work-tag--award" : ""} ${tag.type === "muted" ? "work-tag--muted" : ""}`}
+                className="work-tag"
               >
-                {tag.label}
+                {tag}
               </span>
             ))}
           </div>
@@ -132,17 +142,19 @@ export default async function ProjectPage({ params }) {
 
       {/* ── Project preview ───────────────────────────────── */}
       <section className="px-5 sm:px-8 lg:px-12 -mt-6">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-4xl relative z-20">
           <div
-            className="w-full h-[240px] sm:h-[360px] rounded-2xl overflow-hidden border border-black/5 shadow-sm flex items-center justify-center"
-            style={{
-              background: `linear-gradient(135deg, ${accentColor}, white)`,
-            }}
-            aria-label="Project preview"
+            className="w-full max-h-[600px] sm:min-h-[360px] rounded-2xl overflow-hidden shadow-xl flex items-center justify-center bg-white"
           >
-            <span className="text-[12px] sm:text-[13px] font-mono tracking-widest uppercase text-neutral-400">
-              Project preview
-            </span>
+            {preview_image ? (
+              <img src={preview_image} alt={title} className="w-full max-h-[600px] object-cover" />
+            ) : (
+              <div className="w-full h-[240px] sm:h-[360px] border border-black/5 bg-neutral-100 flex items-center justify-center">
+                <span className="text-[12px] sm:text-[13px] font-mono tracking-widest uppercase text-neutral-400">
+                  Project preview
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -152,41 +164,22 @@ export default async function ProjectPage({ params }) {
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-16">
             {/* Main content */}
-            <div className="space-y-10 sm:space-y-14">
-              {[
-                { label: "Overview", body: overview },
-                { label: "The Problem", body: problem },
-                { label: "The Solution", body: solution },
-              ].map((section) => (
-                <div key={section.label}>
-                  <h2 className="project-section-label">{section.label}</h2>
-                  <p className="project-body">{section.body}</p>
-                </div>
-              ))}
+            <div className="space-y-10 sm:space-y-14 prose-neutral max-w-none">
+              <BlocksRenderer content={overview} />
             </div>
 
-            {/* Sidebar — Impact */}
+            {/* Sidebar — Impact (Removed since we use Editor.js now, but leaving container for future) */}
             <aside>
               <div
                 className="rounded-2xl p-5 sm:p-6 sticky top-[100px]"
-                style={{ background: accentColor }}
+                style={{ background: accentColor || '#f4f4f5' }}
               >
                 <h3 className="text-[11px] font-semibold uppercase tracking-widest text-neutral-500 mb-4">
-                  Impact
+                  About
                 </h3>
-                <ul className="space-y-3">
-                  {impact.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <span
-                        className="mt-[5px] w-1.5 h-1.5 rounded-full bg-neutral-800 shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span className="text-[14px] font-medium text-neutral-800 leading-snug">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm font-medium text-neutral-800 leading-snug">
+                  {tagline}
+                </p>
               </div>
             </aside>
           </div>
@@ -194,15 +187,15 @@ export default async function ProjectPage({ params }) {
       </section>
 
       {/* ── Prev / Next navigation ────────────────────────── */}
-      <ProjectNav currentSlug={slug} />
+      <ProjectNav currentSlug={slug} allProjects={allProjects || []} />
     </PageShell>
   );
 }
 
-function ProjectNav({ currentSlug }) {
-  const idx = projects.findIndex((p) => p.slug === currentSlug);
-  const prev = idx > 0 ? projects[idx - 1] : null;
-  const next = idx < projects.length - 1 ? projects[idx + 1] : null;
+function ProjectNav({ currentSlug, allProjects }) {
+  const idx = allProjects.findIndex((p) => p.slug === currentSlug);
+  const prev = idx > 0 ? allProjects[idx - 1] : null;
+  const next = idx < allProjects.length - 1 ? allProjects[idx + 1] : null;
 
   if (!prev && !next) return null;
 

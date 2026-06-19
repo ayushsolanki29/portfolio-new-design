@@ -4,28 +4,39 @@ import { IconArrowNE } from "./Icons";
 
 export default function WorkCard({
   colorClass,
-  tags,
+  accentColor,
+  tags = [],
   href,
   slug,
   title,
   description,
   techStack,
+  builtWith = [],
+  previewImage,
 }) {
   const destination = slug ? `/work/${slug}` : href;
   const isExternal = !slug && href && !href.startsWith("/");
 
   return (
-    <div className={`work-card ${colorClass} group`}>
+    <div 
+      className={`work-card ${colorClass || ""} group`}
+      style={accentColor ? { background: accentColor } : {}}
+    >
       {/* Tags + arrow */}
       <div className="work-card__tags">
-        {tags.map((tag, i) => (
-          <span
-            key={i}
-            className={`work-tag ${tag.type === "award" ? "work-tag--award" : ""} ${tag.type === "muted" ? "work-tag--muted" : ""}`}
-          >
-            {tag.label}
-          </span>
-        ))}
+        {tags.map((tag, i) => {
+          const isString = typeof tag === 'string';
+          const label = isString ? tag : tag.label;
+          const type = isString ? '' : tag.type;
+          return (
+            <span
+              key={i}
+              className={`work-tag ${type === "award" ? "work-tag--award" : ""} ${type === "muted" ? "work-tag--muted" : ""}`}
+            >
+              {label}
+            </span>
+          );
+        })}
         <Link
           href={destination}
           {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -42,10 +53,14 @@ export default function WorkCard({
         <p className="work-card__desc">{description}</p>
       </Link>
 
-      <TechBubbles stack={techStack} />
+      <TechBubbles stack={techStack || builtWith} />
 
-      <div className="work-card__img-wrap">
-        <div className="work-card__img-placeholder" aria-label="Project image placeholder" />
+      <div className="work-card__img-wrap relative">
+        {previewImage ? (
+          <img src={previewImage} alt={title} className="w-full h-full object-cover" />
+        ) : (
+          <div className="work-card__img-placeholder" aria-label="Project image placeholder" />
+        )}
       </div>
     </div>
   );

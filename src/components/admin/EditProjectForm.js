@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { createProject, getProjectMetadataOptions } from "@/app/actions/project";
+import { updateProject } from "@/app/actions/project";
+import { getProjectMetadataOptions } from "@/app/actions/project";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { ArrowLeft, Loader2, UploadCloud } from "lucide-react";
@@ -24,14 +24,15 @@ const Editor = dynamic(() => import("@/components/admin/Editor"), {
   ),
 });
 
-export default function NewProjectPage() {
+export default function EditProjectForm({ project }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
-  const [imagePreview, setImagePreview] = useState(null);
-  const [overviewData, setOverviewData] = useState("");
-  const [selectedTech, setSelectedTech] = useState([]);
+  
+  const [imagePreview, setImagePreview] = useState(project.preview_image || null);
+  const [overviewData, setOverviewData] = useState(project.overview ? JSON.stringify(project.overview) : "");
+  const [selectedTech, setSelectedTech] = useState(project.built_with || []);
   const [metadataOptions, setMetadataOptions] = useState({ categories: [], roles: [], accentColors: [], tags: [] });
 
   useEffect(() => {
@@ -47,26 +48,10 @@ export default function NewProjectPage() {
     if (file) {
       const url = URL.createObjectURL(file);
       setImagePreview(url);
-    } else {
-      setImagePreview(null);
-    }
-  };
-
-  // Simple auto-slug generator based on title
-  const handleTitleChange = (e) => {
-    const title = e.target.value;
-    const slugInput = document.getElementById('slug');
-    // Only auto-fill if slug is currently empty or matches the old auto-generated one
-    if (slugInput && !slugInput.dataset.modified) {
-      slugInput.value = title
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)+/g, "");
     }
   };
 
   const handleSlugInput = (e) => {
-    e.target.dataset.modified = "true";
     e.target.value = e.target.value
       .toLowerCase()
       .replace(/[\s_]+/g, "-")
@@ -80,11 +65,10 @@ export default function NewProjectPage() {
     setSuccess(false);
 
     const formData = new FormData(e.currentTarget);
-    const result = await createProject(formData);
+    const result = await updateProject(project.id, formData);
 
     if (result.success) {
       setSuccess(true);
-      // Wait a moment then redirect back to projects list
       setTimeout(() => {
         router.push("/admin/projects");
       }, 2000);
@@ -104,16 +88,18 @@ export default function NewProjectPage() {
           <ArrowLeft className="h-5 w-5" />
         </Link>
         <div>
-          <h1 className="text-3xl font-serif-display font-bold text-neutral-900 tracking-tight">Create New Project</h1>
-          <p className="text-neutral-500">Add a new case study to your portfolio.</p>
+          <h1 className="text-3xl font-serif-display font-bold text-neutral-900 tracking-tight">Edit Project</h1>
+          <p className="text-neutral-500">Update the details of your case study.</p>
         </div>
       </div>
 
       <Card className="rounded-2xl shadow-sm border-neutral-200/60 overflow-hidden">
         <form onSubmit={handleSubmit}>
+          <input type="hidden" name="current_image_url" value={project.preview_image || ""} />
+          
           <CardHeader className="bg-neutral-50/50 border-b border-neutral-100 pb-6">
             <CardTitle>Project Details</CardTitle>
-            <CardDescription>Fill out the fields exactly as they appear on your case studies.</CardDescription>
+            <CardDescription>Update the fields exactly as you want them to appear on your portfolio.</CardDescription>
           </CardHeader>
           <CardContent className="p-6 space-y-8">
             
@@ -125,20 +111,18 @@ export default function NewProjectPage() {
             
             {success && (
               <div className="p-4 text-sm font-medium text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-xl">
-                Project created successfully! Redirecting...
+                Project updated successfully! Redirecting...
               </div>
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Title & Slug */}
               <div className="space-y-3">
                 <Label htmlFor="title">Project Title</Label>
                 <Input 
                   id="title" 
                   name="title" 
-                  placeholder="e.g. Building the navigation 2.0" 
+                  defaultValue={project.title}
                   required 
-                  onChange={handleTitleChange}
                   className="rounded-xl bg-neutral-50 border-neutral-200/60"
                 />
               </div>
@@ -147,19 +131,19 @@ export default function NewProjectPage() {
                 <Input 
                   id="slug" 
                   name="slug" 
-                  placeholder="e.g. navigation-2" 
+                  defaultValue={project.slug}
                   required 
                   onInput={handleSlugInput}
                   className="rounded-xl bg-neutral-50 border-neutral-200/60 font-mono text-sm"
                 />
               </div>
 
-              {/* Category & Subtitle */}
               <div className="space-y-3">
                 <Label htmlFor="category">Category</Label>
                 <CreatableSelect 
                   name="category" 
                   options={metadataOptions.categories} 
+                  defaultValue={project.category}
                   placeholder="Select or create category..." 
                 />
               </div>
@@ -168,17 +152,17 @@ export default function NewProjectPage() {
                 <Input 
                   id="subtitle" 
                   name="subtitle" 
-                  placeholder="e.g. Reducing navigation time by 50%" 
+                  defaultValue={project.subtitle}
                   className="rounded-xl bg-neutral-50 border-neutral-200/60"
                 />
               </div>
 
-              {/* Role & Year */}
               <div className="space-y-3">
                 <Label htmlFor="role">Role</Label>
                 <CreatableSelect 
                   name="role" 
                   options={metadataOptions.roles} 
+                  defaultValue={project.role}
                   placeholder="Select or create role..." 
                 />
               </div>
@@ -187,7 +171,7 @@ export default function NewProjectPage() {
                 <Input 
                   id="year" 
                   name="year" 
-                  placeholder="e.g. 2023" 
+                  defaultValue={project.year}
                   required 
                   className="rounded-xl bg-neutral-50 border-neutral-200/60"
                 />
@@ -199,6 +183,7 @@ export default function NewProjectPage() {
                   <CreatableMultiSelect 
                     name="tags" 
                     options={metadataOptions.tags} 
+                    defaultValues={project.tags || []}
                   />
                 </div>
 
@@ -209,16 +194,15 @@ export default function NewProjectPage() {
                       <CreatableSelect 
                         name="accent_color" 
                         options={metadataOptions.accentColors} 
-                        defaultValue="#E3F2FD"
+                        defaultValue={project.accent_color}
                         placeholder="Select or enter hex..." 
                       />
                     </div>
                     <div className="w-10 h-10 rounded-lg border border-neutral-200/60 overflow-hidden shrink-0">
-                      <input type="color" name="accent_color_picker" defaultValue="#E3F2FD" className="w-full h-14 -mt-2 cursor-pointer" onChange={(e) => {
+                      <input type="color" name="accent_color_picker" defaultValue={project.accent_color || "#000000"} className="w-full h-14 -mt-2 cursor-pointer" onChange={(e) => {
                         const input = document.querySelector('input[name="accent_color"]');
                         if (input) {
                           input.value = e.target.value;
-                          // Dispatch change event so React state updates if needed
                           input.dispatchEvent(new Event('change', { bubbles: true }));
                         }
                       }} />
@@ -226,8 +210,8 @@ export default function NewProjectPage() {
                   </div>
                 </div>
               </div>
+            </div>
 
-            {/* URLs */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-3">
                 <Label htmlFor="live_url">Live URL (Optional)</Label>
@@ -235,7 +219,7 @@ export default function NewProjectPage() {
                   id="live_url" 
                   name="live_url" 
                   type="url"
-                  placeholder="https://example.com" 
+                  defaultValue={project.live_url}
                   className="rounded-xl bg-neutral-50 border-neutral-200/60"
                 />
               </div>
@@ -246,19 +230,19 @@ export default function NewProjectPage() {
                   id="github_url" 
                   name="github_url" 
                   type="url"
-                  placeholder="https://github.com/ayushsolanki29/..." 
+                  defaultValue={project.github_url}
                   className="rounded-xl bg-neutral-50 border-neutral-200/60"
                 />
               </div>
             </div>
 
-              {/* Duration & Built With */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <Label htmlFor="duration">Duration</Label>
                 <Input 
                   id="duration" 
                   name="duration" 
-                  placeholder="e.g. 4 months" 
+                  defaultValue={project.duration}
                   className="rounded-xl bg-neutral-50 border-neutral-200/60"
                 />
               </div>
@@ -270,7 +254,6 @@ export default function NewProjectPage() {
 
             <hr className="border-neutral-100" />
 
-            {/* Preview Image */}
             <div className="space-y-3">
               <Label htmlFor="preview_image">Preview Image</Label>
               <div className="flex items-center justify-center w-full">
@@ -288,7 +271,6 @@ export default function NewProjectPage() {
                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                       <UploadCloud className="w-8 h-8 mb-3 text-neutral-400" />
                       <p className="mb-2 text-sm text-neutral-500"><span className="font-semibold">Click to select image</span> or drag and drop</p>
-                      <p className="text-xs text-neutral-400">PNG, JPG, WEBP (Max 5MB)</p>
                     </div>
                   )}
                   <input 
@@ -305,7 +287,6 @@ export default function NewProjectPage() {
 
             <hr className="border-neutral-100" />
 
-            {/* Overview / Content */}
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <Label htmlFor="overview">Project Overview / Description</Label>
@@ -333,10 +314,10 @@ export default function NewProjectPage() {
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Saving Project...
+                  Updating...
                 </>
               ) : (
-                "Create Project"
+                "Update Project"
               )}
             </Button>
           </CardFooter>
