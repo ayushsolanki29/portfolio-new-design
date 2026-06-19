@@ -1,7 +1,9 @@
 import { updateSession } from '@/utils/supabase/middleware'
 
-export async function middleware(request) {
-  return await updateSession(request)
+export async function proxy(request) {
+  // Update session and get the modified response & supabase client
+  const supabaseResponse = await updateSession(request)
+  return supabaseResponse
 }
 
 export const config = {
