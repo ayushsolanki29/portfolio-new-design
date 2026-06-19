@@ -67,6 +67,8 @@ a {
   padding: 12px 20px;
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
               opacity 320ms ease;
+  /* Allow mobile dropdown to overflow the wrapper */
+  overflow: visible;
 }
 
 .nav-wrapper--visible {
@@ -815,6 +817,13 @@ a {
   opacity: 1;
 }
 
+/* Always visible on touch/mobile — no hover state available */
+@media (hover: none) {
+  .work-card__arrow {
+    opacity: 1;
+  }
+}
+
 .work-card__arrow:hover {
   background: #111111;
   color: #ffffff;
@@ -905,7 +914,20 @@ a {
 
 @media (max-width: 640px) {
   .work-card__img-wrap {
-    height: 180px;
+    height: 140px;
+  }
+
+  .work-card {
+    border-radius: 16px;
+    padding: 18px 18px 0;
+  }
+
+  .work-card__title {
+    font-size: 17px;
+  }
+
+  .work-card__desc {
+    font-size: 13px;
   }
 }
 
@@ -1019,6 +1041,17 @@ a {
 }
 
 /* Photo placeholder */
+.t-card__photo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  object-position: bottom right;
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-right: -10px;
+  margin-bottom: -10px;
+}
+
 .t-card__photo--placeholder {
   width: 100px;
   height: 140px;
@@ -1026,6 +1059,8 @@ a {
   background: linear-gradient(160deg, rgba(17,17,17,0.10), rgba(17,17,17,0.05));
   flex-shrink: 0;
   align-self: flex-end;
+  margin-right: 0;
+  margin-bottom: 0;
 }
 
 /* Doodle — always visible, muted by default */
@@ -1198,6 +1233,13 @@ a {
     height: 130px;
   }
 
+  .t-card__photo {
+    width: 125px;
+    height: 125px;
+    margin-right: -8px;
+    margin-bottom: -8px;
+  }
+
   .t-card__photo--placeholder {
     width: 84px;
     height: 118px;
@@ -1349,4 +1391,71 @@ a {
   border-radius: 4px;
   border: 1px solid rgba(17, 17, 17, 0.07);
   flex-shrink: 0;
+}
+
+/* ── Mobile full-screen menu ─────────────────────────────── */
+
+.mobile-menu-item {
+  padding: 8px 24px;
+  border-radius: 12px;
+  transition: color 200ms ease, transform 300ms ease, opacity 300ms ease;
+}
+
+.mobile-menu-item--active,
+.mobile-nav-active {
+  background: linear-gradient(90deg, rgb(143, 87, 255) 0%, rgb(250, 125, 125) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Mobile widget reset ─────────────────────────────── */
+
+.mobile-widget-reset .npm-widget,
+.mobile-widget-reset .vscode-widget,
+.mobile-widget-reset a.canvas-piece {
+  position: static !important;
+  transform: none !important;
+  animation: none !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+}
+
+.mobile-widget-reset a {
+  display: block;
+  width: 100%;
+}
+
+.mobile-widget-reset .bg-white.rounded-xl,
+.mobile-widget-reset .bg-\[\#1e1e1e\].rounded-xl {
+  width: 100% !important;
+}
+
+/* ── Utility: hide scrollbar ─────────────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Mobile testimonial auto-scroll ─────────────────────── */
+
+.mobile-testimonial-track {
+  display: flex;
+  width: max-content;
+  animation: mobile-testimonial-scroll 28s linear infinite;
+}
+
+.mobile-testimonial-track:active {
+  animation-play-state: paused;
+}
+
+@keyframes mobile-testimonial-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }

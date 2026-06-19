@@ -27,12 +27,12 @@ export default function PageHero({
         style={{ top: "80px", height: "300px", opacity: 0.6, ...auraStyle }}
       />
 
-      <h1 className="font-serif-display text-[48px] sm:text-[64px] lg:text-[72px] font-bold text-neutral-950 leading-tight mb-4 relative z-10">
+      <h1 className="font-serif-display text-[34px] sm:text-[56px] lg:text-[72px] font-bold text-neutral-950 leading-tight mb-4 relative z-10">
         {heading}
       </h1>
 
       {subtitle && (
-        <p className="text-[16px] sm:text-[18px] text-neutral-600 font-medium max-w-2xl mx-auto leading-relaxed relative z-10">
+        <p className="text-[15px] sm:text-[18px] text-neutral-600 font-medium max-w-2xl mx-auto leading-relaxed relative z-10 px-2">
           {subtitle}
         </p>
       )}

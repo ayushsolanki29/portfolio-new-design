@@ -54,7 +54,7 @@ export const projects = [
       { name: "React", slug: "react", color: "61DAFB" },
       { name: "Node.js", slug: "nodedotjs", color: "339933" },
       { name: "TypeScript", slug: "typescript", color: "3178C6" },
-      { name: "AWS", slug: "amazonaws", color: "232F3E" },
+      { name: "AWS", slug: "amazonaws", color: "FF9900" },
       { name: "Postman", slug: "postman", color: "FF6C37" },
     ],
     overview:
@@ -89,7 +89,7 @@ export const projects = [
     ],
     techStack: [
       { name: "React", slug: "react", color: "61DAFB" },
-      { name: "Next.js", slug: "nextdotjs", color: "000000" },
+      { name: "Next.js", slug: "nextdotjs", color: "111111" },
       { name: "Node.js", slug: "nodedotjs", color: "339933" },
       { name: "Figma", slug: "figma", color: "F24E1E" },
     ],
@@ -127,7 +127,7 @@ export const projects = [
       { name: "JavaScript", slug: "javascript", color: "F7DF1E" },
       { name: "Python", slug: "python", color: "3776AB" },
       { name: "Figma", slug: "figma", color: "F24E1E" },
-      { name: "Vercel", slug: "vercel", color: "000000" },
+      { name: "Vercel", slug: "vercel", color: "111111" },
     ],
     overview:
       "Pet Warehouse wanted to grow its adoption platform and create a viral loop that brought in new users organically. The project combined UX research, growth design, and data-driven experimentation to drive top-of-funnel growth.",

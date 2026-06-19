@@ -44,18 +44,18 @@ export default function HeroSection() {
         id="home"
         className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center pb-10 pt-[88px] text-center sm:pt-[94px]"
       >
-        <h1 className="font-serif-display mx-auto max-w-[1040px] text-[51px] font-bold leading-[0.98] text-neutral-950 sm:text-[75px] lg:text-[82px]">
+        <h1 className="font-serif-display mx-auto max-w-[1040px] text-[36px] font-bold leading-[1.05] text-neutral-950 sm:text-[64px] lg:text-[82px]">
           <span className="block whitespace-normal lg:whitespace-nowrap">
             I build, I ship, I scale
           </span>
           <span className="block">then I optimize.</span>
         </h1>
 
-        <p className="mt-[16px] max-w-2xl text-[19px] font-normal leading-tight text-slate-900">
+        <p className="mt-4 max-w-2xl text-[15px] sm:text-[19px] font-normal leading-snug text-slate-900 px-2">
           Fullstack Engineer — Node.js, Next.js, AWS & beyond.
         </p>
 
-        <div className="mt-[22px] flex flex-wrap items-center justify-center gap-[10px] text-[12px] font-bold">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-[8px] text-[11px] sm:text-[12px] font-bold px-4">
           <span className="rounded-md bg-lime-100 px-[7px] py-[3px] text-green-700">
             3+ years of experience
           </span>

@@ -56,23 +56,8 @@ function getMenuItems(email, linkedin, github) {
         </svg>
       ),
       action: () => window.open(github, "_blank", "noopener,noreferrer"),
-    },
-    DIVIDER,
-    {
-      id: "devtools",
-      label: "Open DevTools",
-      hint: "F12",
-      icon: (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="16 18 22 12 16 6" />
-          <polyline points="8 6 2 12 8 18" />
-        </svg>
-      ),
-      action: () => {
-        // eslint-disable-next-line no-debugger
-        debugger;
-      },
-    },
+    }
+  
   ];
 }
 
@@ -93,7 +78,6 @@ export default function ContextMenu() {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
 
-      // Flip left if too close to right edge; flip up if too close to bottom
       const x = e.clientX + menuW > vw ? e.clientX - menuW : e.clientX;
       const y = e.clientY + menuH > vh ? e.clientY - menuH : e.clientY;
 
@@ -108,11 +92,13 @@ export default function ContextMenu() {
     document.addEventListener("contextmenu", onContext);
     document.addEventListener("keydown", onKeyDown);
     document.addEventListener("click", close);
+    window.addEventListener("scroll", close, { passive: true });
 
     return () => {
       document.removeEventListener("contextmenu", onContext);
       document.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("click", close);
+      window.removeEventListener("scroll", close);
     };
   }, [close]);
 
