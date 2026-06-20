@@ -65,10 +65,9 @@ export default function Navbar() {
       >
         {/* ── Pill ──────────────────────────────────────── */}
         <header className="nav-shell flex h-[54px] w-full items-center justify-between gap-4 rounded-2xl px-5 relative">
-          {/* Logo */}
           <SlideUpLink
             href="/"
-            className="brand-logo flex items-center justify-center"
+            className="nav-link relative z-10"
             aria-label={`${siteConfig.name} home`}
           >
             <Image
@@ -76,8 +75,7 @@ export default function Navbar() {
               alt={`${siteConfig.name} Logo`}
               width={68}
               height={19}
-              className="object-contain"
-              style={{ width: "auto", height: "auto" }}
+              className="object-contain h-[13px] w-auto"
               priority
             />
           </SlideUpLink>

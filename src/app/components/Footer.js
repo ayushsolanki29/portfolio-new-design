@@ -1,6 +1,6 @@
 import SlideUpLink from "./SlideUpLink";
 import CTACard from "./CTACard";
-import { siteConfig, navItems } from "@/config/site";
+import { siteConfig, footerItems } from "@/config/site";
 
 export default function Footer({ hideCTA = false }) {
   return (
@@ -24,7 +24,7 @@ export default function Footer({ hideCTA = false }) {
 
         {/* Footer Navigation */}
         <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-8 sm:mb-10 text-[14px] sm:text-[15px] font-medium text-neutral-800">
-          {navItems.map((item) => (
+          {footerItems.map((item) => (
             <SlideUpLink key={item.name} href={item.path} className="hover:text-violet-600 transition-colors">
               {item.name}
             </SlideUpLink>
