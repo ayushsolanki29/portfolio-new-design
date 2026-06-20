@@ -11,7 +11,8 @@ import {
   SidebarHeader,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { Home, FolderDot, Lightbulb, Mail, Settings, User, BarChart3 } from "lucide-react";
+import { Home, FolderDot, Lightbulb, Mail, Settings, User, BarChart3, LogOut } from "lucide-react";
+import { signOut } from "@/app/actions/profile";
 
 export function AppSidebar() {
   return (
@@ -89,8 +90,16 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       
-      <SidebarFooter className="p-4 text-xs text-neutral-400 font-medium">
-        Portfolio Admin &copy; 2026
+      <SidebarFooter className="p-4 flex flex-col gap-2">
+        <form action={signOut}>
+          <button type="submit" className="flex w-full items-center gap-3 px-2 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 rounded-lg transition-colors">
+            <LogOut className="w-4 h-4" />
+            Sign Out
+          </button>
+        </form>
+        <div className="px-2 text-xs text-neutral-400 font-medium">
+          Portfolio Admin &copy; 2026
+        </div>
       </SidebarFooter>
     </Sidebar>
   );
