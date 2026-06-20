@@ -252,7 +252,7 @@ a {
   display: flex;
   width: max-content;
   align-items: center;
-  gap: 86px;
+  gap: 36px;
   animation: partner-scroll 24s linear infinite;
 }
 
@@ -262,8 +262,8 @@ a {
 
 .partner-slide {
   display: flex;
-  width: 128px;
-  height: 40px;
+  width: auto;
+  height: 70px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
@@ -682,12 +682,13 @@ a {
   }
 
   .partner-track {
-    gap: 46px;
+    gap: 24px;
     animation-duration: 18s;
   }
 
   .partner-slide {
-    width: 116px;
+    width: auto;
+    height: 60px;
   }
 
   .wall-canvas {

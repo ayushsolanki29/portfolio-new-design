@@ -1,36 +1,30 @@
 import Image from "next/image";
+import { Briefcase } from "lucide-react";
+
+import gipl from "../../../public/companies/gipl.png";
+import gvoice from "../../../public/companies/gvoice.png";
+import houspire from "../../../public/companies/houspire.png";
+import zodeck from "../../../public/companies/zodeck.png";
+import talab from "../../../public/companies/talab.png";
+import asknani from "../../../public/companies/asknani.png";
+import speedyLaundry from "../../../public/companies/speedy-laundry.svg";
+import cassio from "../../../public/companies/cassio-dry-cleaners.png";
+import imexina from "../../../public/companies/impexina.jpeg";
+import bennet from "../../../public/companies/bennet-trading.svg";
+import slxm from "../../../public/companies/slexim.jpg";
 
 const partners = [
-  {
-    name: "happy pet",
-    src: "https://framerusercontent.com/images/I2yTv2Y8lYW4KO4I4wWduOsiJQ.png?height=298&width=1056",
-    width: 120,
-    height: 34,
-  },
-  {
-    name: "JOSH TALKS",
-    src: "https://framerusercontent.com/images/McNhgA7Wiel5fyRX0Ia5brtes.png?height=400&width=1318",
-    width: 96,
-    height: 29,
-  },
-  {
-    name: "PET WAREHOUSE",
-    src: "https://framerusercontent.com/images/uXzxhZHggsUtSc276l0pRFotTF8.png?height=313&width=1469",
-    width: 122,
-    height: 26,
-  },
-  {
-    name: "Yellow.ai",
-    src: "https://framerusercontent.com/images/jv95svl5pbBqtymA3LLVaPh5AI.png?height=276&width=1536",
-    width: 120,
-    height: 22,
-  },
-  {
-    name: "POSTMAN",
-    src: "https://framerusercontent.com/images/ZQRKHkGjFEZ9ymzK8UQi7t2zVo.png?height=277&width=1483",
-    width: 126,
-    height: 24,
-  },
+  { name: "GIPL", src: gipl },
+  { name: "Gvoice", src: gvoice },
+  { name: "Houspire", src: houspire },
+  { name: "Zodeck", src: zodeck },
+  { name: "Talab", src: talab },
+  { name: "AskNani", src: asknani },
+  { name: "Speedy Laundry", src: speedyLaundry },
+  { name: "Cassio Dry Cleaners", src: cassio },
+  { name: "Imexina", src: imexina },
+  { name: "Bennet Trading", src: bennet },
+  { name: "SLXM", src: slxm },
 ];
 
 const partnerSlides = [...partners, ...partners];
@@ -46,13 +40,13 @@ export default function HeroSection() {
       >
         <h1 className="font-serif-display mx-auto max-w-[1040px] text-[36px] font-bold leading-[1.05] text-neutral-950 sm:text-[64px] lg:text-[82px]">
           <span className="block whitespace-normal lg:whitespace-nowrap">
-            I build, I ship, I scale
+            I write code that works,
           </span>
-          <span className="block">then I optimize.</span>
+          <span className="block">and systems that scale.</span>
         </h1>
 
         <p className="mt-4 max-w-2xl text-[15px] sm:text-[19px] font-normal leading-snug text-slate-900 px-2">
-          Fullstack Engineer — Node.js, Next.js, AWS & beyond.
+          Fullstack Engineer ~ Node.js, Next.js, AWS & beyond.
         </p>
 
         <div className="mt-5 flex flex-wrap items-center justify-center gap-[8px] text-[11px] sm:text-[12px] font-bold px-4">
@@ -62,8 +56,8 @@ export default function HeroSection() {
           <span className="rounded-md bg-violet-100 px-[7px] py-[3px] text-violet-700">
             Production Engineer @ GIPL
           </span>
-          <span className="rounded-md bg-amber-100 px-[7px] py-[3px] text-amber-700">
-            🏆 Employee of the Month — Jul 2025
+          <span className="flex items-center gap-1.5 rounded-md bg-amber-100 px-[7px] py-[3px] text-amber-700">
+            <Briefcase size={12} strokeWidth={2.5} /> Available for Freelance
           </span>
         </div>
 
@@ -75,15 +69,13 @@ export default function HeroSection() {
             {partnerSlides.map((partner, index) => (
               <div
                 key={`${partner.name}-${index}`}
-                className="partner-slide"
+                className="partner-slide flex justify-center items-center"
                 aria-hidden={index >= partners.length}
               >
                 <Image
                   src={partner.src}
                   alt={index < partners.length ? partner.name : ""}
-                  width={partner.width}
-                  height={partner.height}
-                  className="h-auto max-h-8 object-contain"
+                  className="w-auto h-auto max-h-[44px] sm:max-h-[56px] max-w-[120px] sm:max-w-[150px] object-contain mix-blend-multiply"
                 />
               </div>
             ))}
