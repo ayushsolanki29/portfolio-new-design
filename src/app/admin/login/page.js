@@ -49,10 +49,10 @@ export default function AdminLoginPage() {
             <span className="font-serif-display font-bold text-xl tracking-tight">AS</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight font-serif-display mb-2">
-            Welcome back
+            Welcome back, Ayush
           </h1>
           <p className="text-neutral-500 text-sm sm:text-base">
-            Enter your credentials to access the portfolio dashboard.
+            Your personal creative portal awaits. Enter your credentials to continue.
           </p>
         </div>
 

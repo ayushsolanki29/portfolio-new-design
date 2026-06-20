@@ -14,6 +14,10 @@ export default function AdminProfileForm({ initialProfile }) {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
+  const [fullName, setFullName] = useState(initialProfile?.full_name || "");
+  const [avatarUrl, setAvatarUrl] = useState(initialProfile?.avatar_url || "");
+  const [bio, setBio] = useState(initialProfile?.bio || "");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -57,8 +61,8 @@ export default function AdminProfileForm({ initialProfile }) {
             {/* Avatar Preview */}
             <div className="shrink-0 flex flex-col items-center gap-3">
               <div className="w-24 h-24 rounded-full bg-neutral-100 border border-neutral-200 flex items-center justify-center overflow-hidden">
-                {initialProfile?.avatar_url ? (
-                  <img src={initialProfile.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
+                {avatarUrl ? (
+                  <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
                 ) : (
                   <User className="w-10 h-10 text-neutral-400" />
                 )}
@@ -85,7 +89,8 @@ export default function AdminProfileForm({ initialProfile }) {
                 <Input 
                   id="full_name" 
                   name="full_name" 
-                  defaultValue={initialProfile?.full_name || ""}
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                   placeholder="e.g. Jane Doe" 
                   className="rounded-xl bg-neutral-50 border-neutral-200/60"
                 />
@@ -97,7 +102,8 @@ export default function AdminProfileForm({ initialProfile }) {
                 <Input 
                   id="avatar_url" 
                   name="avatar_url" 
-                  defaultValue={initialProfile?.avatar_url || ""}
+                  value={avatarUrl}
+                  onChange={(e) => setAvatarUrl(e.target.value)}
                   placeholder="https://example.com/avatar.png" 
                   className="rounded-xl bg-neutral-50 border-neutral-200/60"
                 />
@@ -110,7 +116,8 @@ export default function AdminProfileForm({ initialProfile }) {
                   id="bio" 
                   name="bio" 
                   rows={4}
-                  defaultValue={initialProfile?.bio || ""}
+                  value={bio}
+                  onChange={(e) => setBio(e.target.value)}
                   placeholder="A short description about yourself..." 
                   className="rounded-xl bg-neutral-50 border-neutral-200/60 resize-none"
                 />
