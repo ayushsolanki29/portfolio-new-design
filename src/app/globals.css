@@ -925,6 +925,221 @@ a {
   }
 }
 
+/* ── Thoughts Section ──────────────────────────────────────── */
+
+.thought-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 24px 24px 0;
+  overflow: hidden;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 260ms ease;
+}
+
+.thought-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.thought-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.thought-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.08);
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #111111;
+}
+
+.thought-tag--muted {
+  background: rgba(17, 17, 17, 0.05);
+  color: #777777;
+}
+
+.thought-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.08);
+  color: #111111;
+  font-size: 16px;
+  margin-left: auto;
+  opacity: 0;
+  transition: background 180ms ease, transform 180ms ease, opacity 180ms ease;
+}
+
+.thought-card:hover .thought-card__arrow {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .thought-card__arrow {
+    opacity: 1;
+  }
+}
+
+.thought-card__arrow:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.thought-card__title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.3;
+}
+
+.thought-card__excerpt {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.6;
+  max-width: 420px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.thought-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.thought-card__date {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+  letter-spacing: 0.02em;
+  padding-bottom: 16px;
+}
+
+.thought-card__accent-strip {
+  width: 100%;
+  height: 6px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(
+    90deg,
+    rgba(140, 85, 255, 0.35) 0%,
+    rgba(250, 125, 125, 0.35) 50%,
+    rgba(255, 200, 120, 0.3) 100%
+  );
+  opacity: 0.5;
+  transition: opacity 300ms ease;
+  flex-shrink: 0;
+  margin-left: -24px;
+  margin-right: -24px;
+  margin-bottom: 0;
+  width: calc(100% + 48px);
+}
+
+.thought-card:hover .thought-card__accent-strip {
+  opacity: 1;
+}
+
+/* ── Thought Filter Pills ──────────────────────────────────── */
+
+.thought-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.thought-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: transparent;
+  color: #555555;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-family: inherit;
+}
+
+.thought-filter-pill:hover {
+  border-color: rgba(17, 17, 17, 0.25);
+  color: #111111;
+  background: rgba(17, 17, 17, 0.03);
+}
+
+.thought-filter-pill--active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.thought-filter-pill--active:hover {
+  background: #333333;
+  border-color: #333333;
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .thought-card {
+    border-radius: 16px;
+    padding: 18px 18px 0;
+  }
+
+  .thought-card__title {
+    font-size: 17px;
+  }
+
+  .thought-card__excerpt {
+    font-size: 13px;
+    -webkit-line-clamp: 2;
+  }
+
+  .thought-card__accent-strip {
+    margin-left: -18px;
+    margin-right: -18px;
+    width: calc(100% + 36px);
+  }
+
+  .thought-filters {
+    gap: 6px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .thought-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .thought-filter-pill {
+    font-size: 12px;
+    padding: 6px 14px;
+    flex-shrink: 0;
+  }
+}
+
 /* ── Testimonials Section ──────────────────────────────────── */
 
 .testimonial-marquee {
