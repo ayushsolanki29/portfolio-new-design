@@ -1,39 +1,115 @@
-import SlideUpLink from "./SlideUpLink";
-import CTACard from "./CTACard";
-import { siteConfig, footerItems } from "@/config/site";
+"use client";
 
-export default function Footer({ hideCTA = false }) {
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { siteConfig } from "@/config/site";
+
+export default function Footer() {
+  const words = ["build", "create", "design", "invent"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <footer className="px-5 pb-10 sm:px-8 lg:px-12 pt-12 sm:pt-16">
-      <div className="mx-auto max-w-5xl">
-        {/* CTA Card */}
-        {!hideCTA && <CTACard />}
+    <footer className="relative w-full bg-[#FAF9F8] overflow-hidden pt-24 sm:pt-32 pb-8 text-neutral-900 mt-10 border-t border-neutral-100">
+      
+      {/* Huge Background Text Overlay */}
+      <div className="absolute bottom-[-20px] sm:bottom-[-40px] left-0 w-full flex justify-center pointer-events-none select-none z-10">
+        <h1 
+          className="text-[120px] sm:text-[220px] lg:text-[300px] font-black tracking-tighter leading-none font-serif-display uppercase bg-clip-text text-transparent"
+          style={{ backgroundImage: "linear-gradient(0deg, rgba(0, 0, 0, 0) 24%, rgba(0, 0, 0, 0.05) 91%)" }}
+        >
+          {siteConfig.shortName}
+        </h1>
+      </div>
 
-        {/* Decorative Divider */}
-        <div className="mt-16 sm:mt-20 mb-10 sm:mb-12 flex items-center justify-center px-4">
-          <div className="w-[332px] max-w-full h-[14px]">
-            <svg viewBox="0 0 332 14" className="w-full h-auto">
-              <path d="M 123.024 9.359 C 122.19 11.617 119.987 14 117.091 14 L 116.968 13.95 C 115.091 13.893 112.765 12.855 112.06 10.699 C 111.87 10.073 111.813 9.413 111.891 8.762 C 111.97 8.112 112.182 7.486 112.514 6.926 C 112.971 6.204 113.614 5.625 114.372 5.253 C 115.13 4.881 115.973 4.731 116.809 4.819 C 116.896 4.823 116.981 4.845 117.059 4.883 C 117.137 4.922 117.207 4.976 117.265 5.043 C 117.322 5.11 117.366 5.189 117.393 5.273 C 117.42 5.358 117.43 5.447 117.422 5.536 C 117.423 5.627 117.405 5.717 117.368 5.801 C 117.332 5.884 117.278 5.958 117.211 6.018 C 117.144 6.077 117.065 6.122 116.98 6.147 C 116.894 6.172 116.805 6.178 116.717 6.165 C 116.194 6.09 115.661 6.151 115.168 6.344 C 114.674 6.536 114.236 6.853 113.894 7.265 C 113.552 7.677 113.317 8.171 113.211 8.701 C 113.105 9.231 113.131 9.779 113.287 10.296 C 113.814 11.956 115.778 12.61 116.968 12.648 C 119.189 12.723 121.097 10.806 121.809 8.875 C 122.175 7.927 122.288 6.896 122.137 5.889 C 121.986 4.881 121.576 3.932 120.95 3.14 C 119.778 1.751 117.895 1.122 115.655 1.367 C 113.056 1.655 111.263 3.479 110.393 4.365 L 110.379 4.379 C 110.109 4.668 109.808 5.027 109.495 5.41 L 109.483 5.424 C 107.931 7.317 105.595 10.166 101.457 8.322 C 101.063 8.115 100.712 7.835 100.418 7.5 L 0.5 7.5 L 0.5 6.5 L 99.794 6.5 C 99.608 6.056 99.507 5.577 99.5 5.09 C 99.518 4.311 99.799 3.563 100.295 2.973 C 100.79 2.382 101.47 1.986 102.218 1.851 C 102.858 1.782 103.504 1.911 104.072 2.22 C 104.64 2.529 105.106 3.005 105.409 3.587 C 105.463 3.664 105.5 3.751 105.518 3.844 C 105.536 3.937 105.535 4.033 105.514 4.125 C 105.493 4.217 105.454 4.304 105.398 4.379 C 105.342 4.454 105.271 4.517 105.19 4.562 C 105.108 4.607 105.019 4.633 104.926 4.64 C 104.834 4.647 104.742 4.633 104.655 4.601 C 104.569 4.568 104.49 4.517 104.424 4.45 C 104.358 4.384 104.307 4.304 104.274 4.215 C 104.097 3.866 103.823 3.578 103.487 3.388 C 103.15 3.197 102.767 3.114 102.384 3.147 C 101.942 3.242 101.545 3.488 101.258 3.844 C 100.97 4.2 100.809 4.646 100.801 5.108 C 100.819 5.512 100.936 5.904 101.141 6.249 C 101.345 6.594 101.631 6.881 101.973 7.083 C 105.237 8.573 106.967 6.454 108.495 4.568 C 108.534 4.521 108.573 4.474 108.611 4.428 C 108.914 4.062 109.191 3.728 109.458 3.448 L 109.466 3.44 C 110.366 2.524 112.455 0.398 115.514 0.059 C 118.189 -0.23 120.472 0.549 121.932 2.285 C 122.711 3.258 123.223 4.427 123.415 5.67 C 123.607 6.914 123.472 8.187 123.024 9.359 Z" fill="rgba(74, 87, 111, 0.3)" />
-              <path d="M 166.824 13 L 167.496 13 C 167.608 12.328 167.912 11.594 168.424 10.797 C 169.448 9.219 171.512 7.672 173.288 7.313 L 173.288 6.656 C 172.408 6.469 171.544 6.078 170.712 5.5 C 169.016 4.328 167.768 2.578 167.496 1 L 166.824 1 C 166.664 1.828 166.296 2.625 165.72 3.438 C 164.584 5.047 162.808 6.234 161 6.656 L 161 7.313 C 161.912 7.5 162.84 7.938 163.752 8.609 C 165.608 9.969 166.584 11.656 166.824 13 Z" fill="rgb(10, 10, 13)" />
-              <path d="M 149.896 8.813 L 150.115 8.813 C 150.151 8.594 150.25 8.355 150.417 8.095 C 150.75 7.582 151.422 7.078 152 6.961 L 152 6.747 C 151.714 6.686 151.432 6.559 151.161 6.371 C 150.609 5.99 150.203 5.42 150.115 4.906 L 149.896 4.906 C 149.844 5.176 149.724 5.435 149.536 5.7 C 149.167 6.224 148.589 6.61 148 6.747 L 148 6.961 C 148.297 7.022 148.599 7.165 148.896 7.383 C 149.5 7.826 149.818 8.375 149.896 8.813 Z" fill="rgb(10, 10, 13)" />
-              <path d="M 181.896 8.813 L 182.115 8.813 C 182.151 8.594 182.25 8.355 182.417 8.095 C 182.75 7.582 183.422 7.078 184 6.961 L 184 6.747 C 183.714 6.686 183.432 6.559 183.161 6.371 C 182.609 5.99 182.203 5.42 182.115 4.906 L 181.896 4.906 C 181.844 5.176 181.724 5.435 181.536 5.7 C 181.167 6.224 180.589 6.61 180 6.747 L 180 6.961 C 180.297 7.022 180.599 7.165 180.896 7.383 C 181.5 7.826 181.818 8.375 181.896 8.813 Z" fill="rgb(10, 10, 13)" />
-              <path d="M 208.976 9.359 C 209.81 11.617 212.013 14 214.909 14 L 215.032 13.95 C 216.909 13.893 219.235 12.855 219.94 10.699 C 220.13 10.073 220.187 9.413 220.109 8.762 C 220.03 8.112 219.818 7.486 219.486 6.926 C 219.029 6.204 218.386 5.625 217.628 5.253 C 216.87 4.881 216.027 4.731 215.191 4.819 C 215.104 4.823 215.019 4.845 214.941 4.883 C 214.863 4.922 214.793 4.976 214.735 5.043 C 214.678 5.11 214.634 5.189 214.607 5.273 C 214.58 5.358 214.57 5.447 214.578 5.536 C 214.577 5.627 214.595 5.717 214.632 5.801 C 214.668 5.884 214.722 5.958 214.789 6.018 C 214.856 6.077 214.935 6.122 215.02 6.147 C 215.106 6.172 215.195 6.178 215.283 6.165 C 215.806 6.09 216.339 6.151 216.832 6.344 C 217.326 6.536 217.764 6.853 218.106 7.265 C 218.448 7.677 218.683 8.171 218.789 8.701 C 218.895 9.231 218.869 9.779 218.713 10.296 C 218.186 11.956 216.222 12.61 215.032 12.648 C 212.811 12.723 210.903 10.806 210.191 8.875 C 209.825 7.927 209.712 6.896 209.863 5.889 C 210.014 4.881 210.424 3.932 211.05 3.14 C 212.222 1.751 214.105 1.122 216.345 1.367 C 218.944 1.655 220.737 3.479 221.607 4.365 L 221.621 4.379 C 221.891 4.668 222.192 5.027 222.505 5.41 L 222.517 5.424 C 224.069 7.317 226.405 10.166 230.543 8.322 C 230.937 8.115 231.288 7.835 231.582 7.5 L 331.5 7.5 L 331.5 6.5 L 232.205 6.5 C 232.393 6.056 232.493 5.577 232.5 5.09 C 232.482 4.311 232.201 3.563 231.705 2.973 C 231.21 2.382 230.53 1.986 229.782 1.851 C 229.142 1.782 228.496 1.911 227.928 2.22 C 227.36 2.529 226.894 3.005 226.591 3.587 C 226.537 3.664 226.5 3.751 226.482 3.844 C 226.464 3.937 226.465 4.033 226.486 4.125 C 226.507 4.217 226.546 4.304 226.602 4.379 C 226.658 4.454 226.729 4.517 226.81 4.562 C 226.892 4.607 226.981 4.633 227.074 4.64 C 227.166 4.647 227.258 4.633 227.345 4.601 C 227.431 4.568 227.51 4.517 227.576 4.45 C 227.642 4.384 227.693 4.304 227.726 4.215 C 227.903 3.866 228.177 3.578 228.513 3.388 C 228.85 3.197 229.233 3.114 229.616 3.147 C 230.058 3.242 230.455 3.488 230.742 3.844 C 231.03 4.2 231.191 4.646 231.199 5.108 C 231.181 5.512 231.064 5.904 230.859 6.249 C 230.655 6.594 230.369 6.881 230.027 7.083 C 226.763 8.573 225.033 6.454 223.505 4.568 C 223.466 4.521 223.427 4.474 223.389 4.428 C 223.086 4.062 222.809 3.728 222.542 3.448 L 222.534 3.44 C 221.634 2.524 219.545 0.398 216.486 0.059 C 213.811 -0.23 211.528 0.549 210.068 2.285 C 209.289 3.258 208.777 4.427 208.585 5.67 C 208.393 6.914 208.528 8.187 208.976 9.359 Z" fill="rgba(74, 87, 111, 0.3)" />
-            </svg>
+      <div className="relative z-20 mx-auto max-w-6xl px-5 sm:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 md:gap-20 mb-24 sm:mb-40">
+          
+          {/* Left Content */}
+          <div className="max-w-2xl">
+            <div className="flex items-center flex-wrap gap-x-4 gap-y-2 mb-2">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-neutral-900">
+                lets
+              </h2>
+              <span className="relative inline-flex items-center min-w-[150px] sm:min-w-[180px] md:min-w-[240px] h-[60px] sm:h-[80px] align-middle">
+                {words.map((word, index) => (
+                  <span
+                    key={word}
+                    className={`absolute left-0 font-cursive text-6xl sm:text-7xl md:text-8xl font-normal leading-none text-[#8c55ff] transition-all duration-700 ease-in-out ${
+                      index === currentIndex 
+                        ? "opacity-100 translate-y-0" 
+                        : "opacity-0 translate-y-4 pointer-events-none"
+                    }`}
+                  >
+                    {word}
+                  </span>
+                ))}
+              </span>
+            </div>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-neutral-900 mb-16">
+              incredible work together.
+            </h2>
+            
+            <div className="flex flex-wrap gap-12 sm:gap-24">
+              <div>
+                <span className="block text-xs sm:text-sm font-medium text-neutral-500 mb-2 tracking-wide uppercase">Email</span>
+                <a href={`mailto:${siteConfig.email}`} className="text-base sm:text-lg font-bold text-neutral-800 hover:text-[#8c55ff] transition-colors">
+                  {siteConfig.email}
+                </a>
+              </div>
+              <div>
+                <span className="block text-xs sm:text-sm font-medium text-neutral-500 mb-2 tracking-wide uppercase">Social</span>
+                <div className="flex gap-4">
+                  <a 
+                    href={siteConfig.socials.linkedin} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="w-10 h-10 bg-white text-neutral-900 rounded-full flex items-center justify-center hover:bg-[#8c55ff] hover:text-white transition-all shadow-sm border border-neutral-200"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                  <a 
+                    href={siteConfig.socials.github} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="w-10 h-10 bg-white text-neutral-900 rounded-full flex items-center justify-center hover:bg-[#8c55ff] hover:text-white transition-all shadow-sm border border-neutral-200"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* Right Floating Video Frame */}
+          <div className="w-full max-w-[280px] md:max-w-[340px] bg-white p-1.5 sm:p-2 rounded-[18px] sm:rounded-[22px] shadow-[0_20px_40px_rgba(0,0,0,0.15)] transform -rotate-2 hover:rotate-0 transition-transform duration-500 mx-auto md:mx-0 border-[1px] border-neutral-200 relative z-20">
+            <div className="w-full aspect-[16/9] sm:aspect-[21/9] overflow-hidden rounded-[14px] sm:rounded-[16px] bg-neutral-900">
+              <video 
+                src="https://framerusercontent.com/assets/ZFhoqlxuV09Rbo2TYA3i62HyQ.mp4" 
+                loop 
+                preload="auto" 
+                muted 
+                playsInline 
+                autoPlay 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
         </div>
 
-        {/* Footer Navigation */}
-        <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-8 sm:mb-10 text-[14px] sm:text-[15px] font-medium text-neutral-800">
-          {footerItems.map((item) => (
-            <SlideUpLink key={item.name} href={item.path} className="hover:text-violet-600 transition-colors">
-              {item.name}
-            </SlideUpLink>
-          ))}
-        </nav>
-
-        {/* Copyright */}
-        <div className="text-center text-[12px] sm:text-[13px] text-neutral-500 font-medium px-4">
-          © {siteConfig.copyrightYear}. {siteConfig.name}. Handcrafted with <span className="text-neutral-800">🖤</span>
+        {/* Bottom Bar */}
+        <div className="relative z-10 border-t border-neutral-200 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm font-medium text-neutral-500">
+          <p>© {siteConfig.copyrightYear} {siteConfig.name}</p>
+          <div className="bg-neutral-900 text-white px-3 py-1.5 rounded-full text-[11px] font-bold shadow-sm">
+            Crafted with Next.js
+          </div>
         </div>
       </div>
     </footer>

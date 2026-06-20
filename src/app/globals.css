@@ -200,6 +200,7 @@ a {
     0 12px 26px rgba(140, 85, 255, 0.12);
 }
 
+
 .font-serif-display {
   font-family: var(--font-averia-serif), Georgia, "Times New Roman", serif;
   letter-spacing: 0;
@@ -207,6 +208,11 @@ a {
 
 .font-handwritten {
   font-family: var(--font-nanum-pen), cursive;
+  letter-spacing: 0;
+}
+
+.font-cursive {
+  font-family: var(--font-dancing-script), cursive;
   letter-spacing: 0;
 }
 

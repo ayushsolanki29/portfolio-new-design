@@ -1,6 +1,6 @@
 export default function LifeSkills() {
   const skills = [
-    { name: "Gaming", level: 90 },
+    { name: "Gaming", level: 105 },
     { name: "Traveling", level: 75 },
     { name: "Hiking", level: 45 },
     { name: "Singing and Dancing", level: -5 },
@@ -25,12 +25,12 @@ export default function LifeSkills() {
             </p>
           </div>
 
-        {/* Right Side */}
+          {/* Right Side */}
           <div className="flex flex-col gap-8">
             {skills.map((skill) => {
               const isNegative = skill.level < 0;
               const absLevel = Math.abs(skill.level);
-              
+
               return (
                 <div key={skill.name} className="flex flex-col gap-3">
                   <div className="flex justify-between items-center text-[13px] font-bold tracking-wider text-neutral-800 uppercase mb-1">
@@ -42,11 +42,10 @@ export default function LifeSkills() {
                   <div className="relative w-full h-[4px] bg-neutral-200 rounded-full mt-1">
                     {/* Visual 'Start' marker to show it's intentionally going out of bounds */}
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-[10px] bg-neutral-400 z-10" />
-                    
+
                     <div
-                      className={`absolute top-0 h-full rounded-full transition-all duration-1000 ease-out ${
-                        isNegative ? "right-full bg-red-500" : "left-0 bg-[#0066FF]"
-                      }`}
+                      className={`absolute top-0 h-full rounded-full transition-all duration-1000 ease-out ${isNegative ? "right-full bg-red-500" : "left-0 bg-[#0066FF]"
+                        }`}
                       style={{ width: `${absLevel}%` }}
                     />
                   </div>

@@ -4,6 +4,7 @@ import {
   Geist_Mono,
   Nanum_Pen_Script,
   Poppins,
+  Dancing_Script,
 } from "next/font/google";
 import "./globals.css";
 import ContextMenu from "./components/ContextMenu";
@@ -34,6 +35,11 @@ const poppins = Poppins({
 const nanumPen = Nanum_Pen_Script({
   variable: "--font-nanum-pen",
   weight: "400",
+  subsets: ["latin"],
+});
+
+const dancingScript = Dancing_Script({
+  variable: "--font-dancing-script",
   subsets: ["latin"],
 });
 
@@ -131,7 +137,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${averiaSerif.variable} ${poppins.variable} ${nanumPen.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${averiaSerif.variable} ${poppins.variable} ${nanumPen.variable} ${dancingScript.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col">

@@ -56,8 +56,8 @@ export default function AboutPage() {
                 Today, I work on consumer and enterprise products, where I enjoy turning complex workflows into experiences that feel simple and intuitive. I'm particularly drawn to problems that sit at the intersection of user needs, business goals, and technical constraints.
               </p>
             </div>
-            <div className="mt-8 text-[#0066FF] text-4xl sm:text-5xl font-handwritten transform -rotate-2">
-              Ayush.
+            <div className="mt-8">
+              <img src="/signature.png" alt="Ayush Signature" className="h-12 sm:h-16 w-auto object-contain transform -rotate-2" />
             </div>
           </div>
         </div>
