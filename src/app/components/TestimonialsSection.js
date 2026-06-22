@@ -10,13 +10,13 @@ function TestimonialCard({ t, isDuplicate = false, className = "" }) {
       <p className="t-card__role">{t.role}</p>
       <p className="t-card__quote">{t.quote}</p>
       <div className="t-card__bottom">
-        <div className={`t-card__doodle ${t.doodleClass}`} aria-hidden={!isDuplicate ? "true" : undefined}>
-          {t.doodleContent}
-        </div>
-        {t.image ? (
-          <img src={t.image} alt={t.name} className="t-card__photo" />
-        ) : (
-          <div className="t-card__photo t-card__photo--placeholder" aria-label={!isDuplicate ? t.name : undefined} />
+        {t.icon && (
+          <div className="t-card__doodle text-neutral-900/10" aria-hidden={!isDuplicate ? "true" : undefined}>
+            <t.icon size={56} strokeWidth={1.5} />
+          </div>
+        )}
+        {t.image && (
+          <img src={t.image} alt={t.name} className="t-card__photo rounded-xl shadow-sm object-cover" />
         )}
       </div>
     </div>

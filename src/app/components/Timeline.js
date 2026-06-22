@@ -43,33 +43,23 @@ export default function Timeline() {
   const timelineData = [
     {
       id: 1,
-      date: "September 2024",
+      date: "July 2025 - Present",
       dateColor: "bg-[#fef3c7] text-[#92400e]",
-      tag: "#LifeFlipped",
-      tagColor: "bg-[#fce7f3] text-[#be185d]",
-      title: "Moved to Bangalore, joined Postman",
-      subtitle: "So far the most intense series of changes in my life",
+      tag: "Production Scale",
+      tagColor: "bg-[#e0f2fe] text-[#0369a1]",
+      title: "Production Engineer @ Gohil Infotech",
+      subtitle: "Leading an 8–10 person technical team, managing 35+ live AWS applications, and optimizing infrastructure by 40%.",
       image: "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=1000&auto=format&fit=crop"
     },
     {
       id: 2,
-      date: "March 2024",
+      date: "January 2022 - March 2025",
       dateColor: "bg-[#f3e8ff] text-[#6b21a8]",
-      tag: "Most favourite",
-      tagColor: "bg-[#e0f2fe] text-[#0369a1]",
-      title: "1st in new office, 2nd time in BLR!",
-      subtitle: "1 week of insane fun, another award for excellence ;)",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-      id: 3,
-      date: "May 2021",
-      dateColor: "bg-[#f3e8ff] text-[#6b21a8]",
-      tag: "The beginning",
+      tag: "The Foundation",
       tagColor: "bg-[#fce7f3] text-[#be185d]",
-      title: "Where it all began as a designer",
-      subtitle: "Flew to Bangalore, first design job, first pizza party @ Josh Talks",
-      image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000&auto=format&fit=crop"
+      title: "Freelance Full-Stack Developer",
+      subtitle: "Built 20+ web applications including SaaS platforms, e-commerce, and CRM tools, managing end-to-end delivery.",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop"
     }
   ];
 

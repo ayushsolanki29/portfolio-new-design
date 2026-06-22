@@ -1,12 +1,12 @@
 import SlideUpLink from "./SlideUpLink";
 import WorkCard from "./WorkCard";
 import { IconArrowNE } from "./Icons";
-import { projects as allProjects } from "../../config/projects";
+import { getPublicProjects } from "@/app/actions/project";
 
-// Show only the first 4 on the home page
-const projects = allProjects.slice(0, 4);
+export default async function WorkSection() {
+  const { success, projects } = await getPublicProjects(1, 4);
+  const safeProjects = success ? projects : [];
 
-export default function WorkSection() {
   return (
     <section id="work" className="px-5 py-16 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
@@ -24,8 +24,17 @@ export default function WorkSection() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {projects.map((project, idx) => (
-            <WorkCard key={idx} {...project} />
+          {safeProjects.map((project) => (
+            <WorkCard
+              key={project.id}
+              slug={project.slug}
+              title={project.title}
+              description={project.subtitle}
+              tags={project.tags || []}
+              accentColor={project.accent_color}
+              builtWith={project.built_with}
+              previewImage={project.preview_image}
+            />
           ))}
         </div>
       </div>

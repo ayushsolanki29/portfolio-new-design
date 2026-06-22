@@ -1,3 +1,5 @@
+import { ThumbsUp, Star, Heart, Zap } from "lucide-react";
+
 export const siteConfig = {
   name: "Ayush Solanki",
   shortName: "AYUSH",
@@ -7,7 +9,7 @@ export const siteConfig = {
   phone: "+91 9723054735",
   location: "Ahmedabad, Gujarat, India",
   website: "https://ayushsolanki.site",
-  resumePath: "https://docs.google.com/document/d/1U0D_T4VzdoEKCTOQYwhPdtWXZwhVTmqC/edit?usp=sharing&ouid=108383743240215142495&rtpof=true&sd=true",
+  resumePath: "https://docs.google.com/document/d/1Qe1c6Dycj3fqEha4wQZFME381kGGFfNz/edit?usp=sharing&ouid=108383743240215142495&rtpof=true&sd=true",
   resumeFileName: "Ayush_Solanki_Resume.pdf",
   socials: {
     github: "https://github.com/ayushsolanki29",
@@ -73,60 +75,38 @@ export const faqData = [
 
 export const testimonials = [
   {
-    name: "Shubhangi Gupta",
-    role: "Sr. Product designer @ yellow.ai",
+    name: "Akshay Prajapati",
+    role: "Operations Manager @Speedy Laundry",
+    image: "/testimonials/akshay.jfif",
     quote:
-      "Ayush is extremely passionate about design. Be it visuals, motion, design system he likes to work in all domains within UX. He owns skills that sets him apart from others.",
+      "Ayush delivered our Speedy Laundry website on time with outstanding quality — modern, professional, and perfectly on-brand. His attention to detail and clear communication made the entire process seamless. Highly recommend!",
     colorClass: "t-card--cream",
-    doodleClass: "t-doodle--100",
-    doodleContent: "100",
+    icon: ThumbsUp,
   },
   {
-    name: "Gautham Menon",
-    role: "Product manager @ atomicwork",
+    name: "Chandrakant Rathod",
+    role: "Chief Technical Officer @ GIPL",
     quote:
-      "He's consistently brought a fresh pair of eyes and questioned the status quo. A cut above in polish, empathy and creativity",
+      "Ayush is a talented Software Developer who consistently delivers quality work. He has strong technical skills, a proactive attitude, and excellent problem-solving abilities. It has been a pleasure working with him.",
     colorClass: "t-card--white",
-    doodleClass: "t-doodle--flower",
+    image: "/testimonials/ck.webp",
+    icon: Star,
   },
   {
-    name: "Priya S Thomas",
-    role: "Design Lead @ yellow.ai",
+    name: "Suresh Prajapati",
+    role: "Owner @ Cassio Dry Cleaners",
     quote:
-      "Ayush as a designer has been great. He has made a significant impact in the team. He's adaptive & attentive to detail. His skills combined with a strong ethic delivers great results.",
-    colorClass: "t-card--white",
-    doodleClass: "t-doodle--pencil",
-  },
-  {
-    name: "Taanvi Chhetri",
-    role: "Design Manager @ Postman",
-    quote:
-      "He is a sharp, curious designer who blends creativity with precision. He's proactive, open to feedback, and elevates both design quality and team efficiency.",
+      "From day one, Ayush treated our website as if it were his own business. He made the process easy—no technical jargon, just honest communication and consistent progress. The final website looks fantastic and perfectly captures our vision. Highly recommend him!",
     colorClass: "t-card--peach",
-    doodleClass: "t-doodle--star",
+    icon: Heart,
   },
   {
-    name: "Hitarthi Bhinde",
-    role: "UX Design @ Google",
+    name: "Ronak Patel",
+    role: "Mobile Development Head @ GIPL",
     quote:
-      "Working with him has been a great experience. He excels at solving problems promptly. His attention to detail and distinguishable skills make him an invaluable asset",
-    colorClass: "t-card--white",
-    doodleClass: "t-doodle--bolt",
-  },
-  {
-    name: "Jeroen Van Der Poll",
-    role: "Sr. Product Designer @ Postman",
-    quote:
-      "He brings creative energy, curiosity, and a strong growth mindset. He's quick with ideas, eager to learn, and a collaborative problem-solver, an asset to any team",
+      "Working with Ayush is always a great experience. He consistently ships clean, reliable backend code and grasps complex requirements instantly. He’s a natural problem solver who hits deadlines without breaking a sweat. Highly recommend him for any backend work!",
     colorClass: "t-card--lavender",
-    doodleClass: "t-doodle--burst",
-  },
-  {
-    name: "Akshay Sharma",
-    role: "Sr. Software Engineer @ Postman",
-    quote:
-      "He is thoughtful, collaborative, balances speed with quality. His user-obsession, eye for detail and adaptability make him a valuable partner in driving product clarity and direction",
-    colorClass: "t-card--white",
-    doodleClass: "t-doodle--sparkles",
-  },
+    image: "/testimonials/ronak.png",
+    icon: Zap,
+  }
 ];

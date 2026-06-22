@@ -101,7 +101,8 @@ export default function Navbar() {
             {/* Resume — desktop */}
             <a
               href={siteConfig.resumePath}
-              download={siteConfig.resumeFileName}
+              target="_blank"
+              rel="noopener noreferrer"
               className="nav-resume h-[38px] rounded-xl border border-black/10 px-[17px] text-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] hidden sm:flex items-center justify-center"
             >
               Resume
@@ -161,7 +162,8 @@ export default function Navbar() {
           <div className="px-4 pt-2 pb-5">
             <a
               href={siteConfig.resumePath}
-              download={siteConfig.resumeFileName}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center w-full py-3.5 rounded-2xl border border-neutral-200 bg-white text-neutral-900 text-[16px] font-semibold shadow-sm hover:bg-neutral-50 transition-colors"
             >
               Resume

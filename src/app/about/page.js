@@ -33,7 +33,7 @@ export default function AboutPage() {
           <div className="w-full max-w-[340px] mx-auto md:mr-auto md:ml-0 bg-white p-4 pb-12 shadow-[0_20px_50px_rgba(33,28,38,0.1)] border border-neutral-200 transform -rotate-3 transition-transform hover:rotate-0 duration-300">
             <div className="w-full aspect-[4/5] bg-neutral-200 overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop"
+                src="/about/ayush.jpg"
                 alt="Portrait"
                 className="w-full h-full object-cover"
               />
@@ -50,10 +50,10 @@ export default function AboutPage() {
             </h1>
             <div className="text-neutral-700 text-[15px] sm:text-base leading-relaxed space-y-5">
               <p>
-                My journey into design started long before product design. I began with graphic design at a young age, spending years experimenting with Photoshop, branding projects, and freelance work. During college, I worked part-time designing websites, emails, and social media campaigns, which helped me build a strong foundation across different areas of design.
+                I'm a Full-Stack Engineer with over 4 years of experience building scalable web applications and enterprise-grade backend systems. My technical journey spans from freelance projects to production environments, specializing in Node.js, Next.js, PHP, and scalable AWS cloud architecture.
               </p>
               <p>
-                Today, I work on consumer and enterprise products, where I enjoy turning complex workflows into experiences that feel simple and intuitive. I'm particularly drawn to problems that sit at the intersection of user needs, business goals, and technical constraints.
+                Currently, I lead an 8–10 person technical team at Gohil Infotech, owning the end-to-end delivery and reliability of 35+ live production applications. Whether it's designing fault-tolerant hardware-to-cloud data syncs or optimizing infrastructure costs by 40%, I thrive on solving complex engineering problems and building systems that scale.
               </p>
             </div>
             <div className="mt-8">
