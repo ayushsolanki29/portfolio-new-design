@@ -21,6 +21,8 @@ function getMenuItems(email, linkedin, github) {
       action: () => {
         const a = document.createElement("a");
         a.href = siteConfig.resumePath;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
         a.download = siteConfig.resumeFileName;
         a.click();
       },

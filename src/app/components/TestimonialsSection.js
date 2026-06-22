@@ -16,7 +16,7 @@ function TestimonialCard({ t, isDuplicate = false, className = "" }) {
           </div>
         )}
         {t.image && (
-          <img src={t.image} alt={t.name} className="t-card__photo rounded-xl shadow-sm object-cover" />
+          <img src={t.image} alt={t.name} className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] rounded-2xl object-cover shadow-md border border-neutral-100/50 mb-1 mr-1" />
         )}
       </div>
     </div>

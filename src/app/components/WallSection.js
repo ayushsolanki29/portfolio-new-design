@@ -4,10 +4,7 @@ import NPMWidget from "./NPMWidget";
 import { IconGitHub, IconArrowNE } from "./Icons";
 import { siteConfig } from "@/config/site";
 
-const canvasImages = {
-  aboutWindow:
-    "https://framerusercontent.com/images/XCVNkZ3Jzgp9PlprKmsbrZRkgv0.png?width=553&height=371",
-};
+
 
 export default function WallSection() {
   return (
@@ -16,16 +13,6 @@ export default function WallSection() {
       {/* ── Desktop canvas (md+) ───────────────────────── */}
       <div className="wall-canvas mx-auto hidden md:block">
         <VSCodeWidget />
-
-        <a href="/contact" className="canvas-piece about-window">
-          <Image
-            src={canvasImages.aboutWindow}
-            alt="Know more about me"
-            width={220}
-            height={148}
-            className="h-auto w-full"
-          />
-        </a>
 
         <div className="canvas-piece wall-sign-wrapper">
           <svg
@@ -107,17 +94,6 @@ export default function WallSection() {
         <div className="col-span-2 mobile-widget-reset">
           <NPMWidget />
         </div>
-
-        {/* About window */}
-        <a href="/contact" className="col-span-2 block rounded-2xl overflow-hidden border border-neutral-100 shadow-sm">
-          <Image
-            src={canvasImages.aboutWindow}
-            alt="Know more about me"
-            width={400}
-            height={268}
-            className="w-full h-auto"
-          />
-        </a>
 
         {/* GitHub achievements */}
         <a

@@ -10,14 +10,14 @@ export default function ToolsSection() {
     { name: "MySQL", slug: "mysql", color: "4479A1" },
     { name: "Redis", slug: "redis", color: "DC382D" },
     { name: "Tailwind CSS", slug: "tailwindcss", color: "06B6D4" },
-    { name: "Git", slug: "git", color: "F05032" },
+    { name: "Git", slug: "git", color: "F05032", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
     { name: "GitHub", slug: "github", color: "181717" },
     { name: "Docker", slug: "docker", color: "2496ED" },
-    { name: "AWS", slug: "amazonaws", color: "FF9900" },
-    { name: "Nginx", slug: "nginx", color: "009639" },
+    { name: "AWS", slug: "amazonaws", color: "FF9900", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+    { name: "Nginx", slug: "nginx", color: "009639", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" },
     { name: "Vercel", slug: "vercel", color: "111111" },
-    { name: "VS Code", slug: "visualstudiocode", color: "007ACC" },
-    { name: "Postman", slug: "postman", color: "FF6C37" },
+    { name: "VS Code", slug: "visualstudiocode", color: "007ACC", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
+    { name: "Postman", slug: "postman", color: "FF6C37", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
   ];
 
   return (
@@ -40,7 +40,7 @@ export default function ToolsSection() {
             >
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-neutral-50 rounded-2xl flex items-center justify-center border border-neutral-100 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md group-hover:bg-white">
                 <img 
-                  src={`https://cdn.simpleicons.org/${tool.slug}/${tool.color}`} 
+                  src={tool.iconUrl || `https://cdn.simpleicons.org/${tool.slug}/${tool.color}`} 
                   alt={tool.name}
                   className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
                   loading="lazy"

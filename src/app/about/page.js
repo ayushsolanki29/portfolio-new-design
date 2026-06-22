@@ -66,7 +66,7 @@ export default function AboutPage() {
       {/* Timeline & Tools */}
       <Timeline />
       <ToolsSection />
-      <MusicSection />
+      {/* <MusicSection />  */}
 
 
       {/* Life Skills */}
