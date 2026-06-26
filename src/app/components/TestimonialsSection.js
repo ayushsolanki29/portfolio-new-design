@@ -16,7 +16,7 @@ function TestimonialCard({ t, isDuplicate = false, className = "" }) {
           </div>
         )}
         {t.image && (
-          <img src={t.image} alt={t.name} className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] rounded-2xl object-cover shadow-md border border-neutral-100/50 mb-1 mr-1" />
+          <img src={t.image} alt={t.name} className={`w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] rounded-2xl shadow-md border border-neutral-100/50 mb-1 mr-1 ${t.isLogo ? "object-contain bg-white p-4" : "object-cover"}`} />
         )}
       </div>
     </div>

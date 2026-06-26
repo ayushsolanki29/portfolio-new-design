@@ -1,4 +1,4 @@
-import { ThumbsUp, Star, Heart, Zap } from "lucide-react";
+import { ThumbsUp, Star, Heart, Zap, Award, TrendingUp, CheckCircle, Briefcase, ShieldCheck, MessageSquare } from "lucide-react";
 
 export const siteConfig = {
   name: "Ayush Solanki",
@@ -44,7 +44,7 @@ export const faqData = [
   {
     question: "What is my experience like?",
     answer:
-      "I have ~3.5 yrs total experience in data-driven UX, systems thinking, scaling SaaS products & AI UX, and some in B2C via freelance as well",
+      "I have ~4.5 yrs total experience in data-driven UX, systems thinking, scaling SaaS products & AI UX, and some in B2C via freelance as well",
   },
   {
     question: "What makes me stand out?",
@@ -73,6 +73,11 @@ export const faqData = [
   },
 ];
 
+// Testimonials array configuration
+// --------------------------------
+// - Keep the length of quotes consistent (around 200-250 characters max) to maintain visual balance.
+// - Available color classes: "t-card--cream", "t-card--white", "t-card--peach", "t-card--lavender".
+// - Try to rotate colors and use different icons from lucide-react to add visual variety.
 export const testimonials = [
   {
     name: "Akshay Prajapati",
@@ -106,7 +111,70 @@ export const testimonials = [
     quote:
       "Working with Ayush is always a great experience. He consistently ships clean, reliable backend code and grasps complex requirements instantly. He’s a natural problem solver who hits deadlines without breaking a sweat. Highly recommend him for any backend work!",
     colorClass: "t-card--lavender",
-    image: "/testimonials/ronak.png",
+    image: "/testimonials/ronak.jpg",
     icon: Zap,
+  },
+  {
+    name: "Bhargav Parmar",
+    role: "Tech Head @ Impexina Global Pvt Ltd",
+    quote:
+      "I am highly satisfied with this software. The UI is modern, intuitive, and user-friendly. The logic implementation is exceptionally well designed, making the workflow smooth and efficient. It has significantly improved our operational efficiency.",
+    colorClass: "t-card--cream",
+    image: "/testimonials/bhargav.jpeg",
+    icon: Award,
+  },
+  {
+    name: "Nikita Soni",
+    role: "Operation Head @ Impexina Global Pvt Ltd",
+    quote:
+      "The software is very well developed and covers all operational requirements effectively. The logic building behind each module is excellent. I especially appreciate the Summary section for quick insights. Every module is designed with practicality in mind.",
+    colorClass: "t-card--white",
+    icon: TrendingUp,
+  },
+  {
+    name: "Harshita Rao",
+    role: "Documentation Head @ Impexina Global Pvt Ltd",
+    quote:
+      "The Packing List and Invoice modules are extremely well structured. The valuation functionality saves considerable time during documentation processes. The UI/UX design is clean and professional, making document preparation much more efficient.",
+    colorClass: "t-card--peach",
+    image: "/testimonials/Harshita.jpeg",
+    icon: CheckCircle,
+  },
+  {
+    name: "Asha Kacha",
+    role: "Logistics Head @ Impexina Global Pvt Ltd",
+    quote:
+      "The Loading Sheet module is one of the strongest features. It simplifies logistics planning and helps manage shipments efficiently. The entire system is well organized and easy to navigate. It has improved accuracy across different departments.",
+    colorClass: "t-card--lavender",
+    image: "/testimonials/asha.jpeg",
+    icon: Briefcase,
+  },
+  {
+    name: "P. S. Harikrishna",
+    role: "Director @ Impexina Global Pvt Ltd",
+    quote:
+      "This software transformed how we manage import-export operations, integrating documentation, logistics, and reporting into a single platform. It has increased productivity, improved visibility, and helped us maintain better operational control.",
+    colorClass: "t-card--cream",
+    image: "/testimonials/harikrishna.jfif",
+    icon: ShieldCheck,
+  },
+  {
+    name: "Overall Company Feedback",
+    role: "Company Feedback @ Impexina Global Pvt Ltd",
+    quote:
+      "This software provides a complete end-to-end solution for import business management. It is easy to use, highly efficient, and backed by strong business logic. It has significantly reduced manual work and enhanced collaboration between departments.",
+    colorClass: "t-card--white",
+    image: "/companies/impexina.jpeg",
+    icon: MessageSquare,
+    isLogo: true,
+  },
+  {
+    name: "Vraj Darji",
+    role: "Marketing Head @ GIPL",
+    quote:
+      "I had a great experience working with Aayush on my billing software. He demonstrated excellent full-stack skills and delivered a reliable, user-friendly solution. He was professional, understood my business needs quickly, and completed the work on time.",
+    colorClass: "t-card--peach",
+    image: "/testimonials/vraj-darji.jpeg",
+    icon: Star,
   }
 ];
