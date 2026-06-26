@@ -75,7 +75,7 @@ export default function Timeline() {
       tag: ["Esports", "Competitive Gaming"],
       title: "Aspiring Esports Player",
       subtitle: "Dedicated time to playing competitive games at a global level. Built a strong foundation in strategic thinking, teamwork, and high-pressure decision-making before transitioning fully into software engineering.",
-      image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&auto=format&fit=crop"
+      image: "/about/games.jpeg"
     }
   ];
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { faqData } from "@/config/site";
 
 export default function FAQ() {
@@ -36,9 +37,8 @@ export default function FAQ() {
                 >
                   <div className="flex items-start sm:items-center gap-3 sm:gap-4">
                     <span
-                      className={`text-[20px] sm:text-[22px] font-light leading-none w-5 flex justify-center transition-colors mt-0.5 sm:mt-0 ${
-                        isOpen ? "text-neutral-400" : "text-neutral-400 group-hover:text-neutral-600"
-                      }`}
+                      className={`text-[20px] sm:text-[22px] font-light leading-none w-5 flex justify-center transition-colors mt-0.5 sm:mt-0 ${isOpen ? "text-neutral-400" : "text-neutral-400 group-hover:text-neutral-600"
+                        }`}
                       style={{ marginTop: isOpen ? "-2px" : undefined }}
                     >
                       {isOpen ? "×" : "+"}
@@ -48,11 +48,10 @@ export default function FAQ() {
                     </span>
                   </div>
                 </button>
-                
+
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? "max-h-[300px] sm:max-h-[200px] opacity-100 mb-5 sm:mb-6" : "max-h-0 opacity-0"
-                  }`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[300px] sm:max-h-[200px] opacity-100 mb-5 sm:mb-6" : "max-h-0 opacity-0"
+                    }`}
                 >
                   <div className="pl-11 sm:pl-14 pr-4 sm:pr-6 text-[14px] sm:text-[15px] leading-relaxed text-neutral-600">
                     {faq.answer}
@@ -63,13 +62,18 @@ export default function FAQ() {
           })}
         </div>
 
-        {/* Placeholder Image Section */}
-        <div className="mt-12 sm:mt-16 py-8 sm:py-12 border-t border-b border-neutral-100 flex justify-center">
-          <div className="w-full bg-neutral-200 rounded-2xl overflow-hidden aspect-[16/9] sm:aspect-[2/1] relative flex items-center justify-center text-neutral-400">
-            {/* Visual placeholder, could be replaced with an actual <Image /> */}
-            <span className="font-medium text-sm sm:text-base">Image Placeholder</span>
+        {/* Image Section */}
+        {/* <div className="mt-12 sm:mt-16 py-8 sm:py-12 border-t border-b border-neutral-100 flex justify-center">
+          <div className="w-full rounded-2xl overflow-hidden aspect-[16/9] sm:aspect-[2/1] relative flex items-center justify-center">
+            <Image
+              src="/about/ayush-helmet.jpeg"
+              alt="Ayush with helmet"
+              className="object-cover"
+              width={1920}
+              height={1080}
+            />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
