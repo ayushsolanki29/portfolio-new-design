@@ -13,7 +13,7 @@ export const TECH_OPTIONS = [
   { name: "Vercel", slug: "vercel", color: "000000" },
   { name: "Firebase", slug: "firebase", color: "FFCA28" },
   { name: "Docker", slug: "docker", color: "2496ED" },
-  { name: "AWS", slug: "aws", color: "232F3E", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+  { name: "AWS", slug: "aws", color: "232F3E", iconUrl: "https://cdn.jspledelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
   { name: "GraphQL", slug: "graphql", color: "E10098" },
   { name: "Stripe", slug: "stripe", color: "008CDD" },
   { name: "Framer Motion", slug: "framer", color: "0055FF" },
