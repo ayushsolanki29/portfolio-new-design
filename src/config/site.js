@@ -1,4 +1,4 @@
-import { ThumbsUp, Star, Heart, Zap, Award, TrendingUp, CheckCircle, Briefcase, ShieldCheck, MessageSquare, Rocket } from "lucide-react";
+import { ThumbsUp, Star, Heart, Zap, Award, TrendingUp, CheckCircle, Briefcase, ShieldCheck, MessageSquare, Rocket, Gamepad2 } from "lucide-react";
 
 export const siteConfig = {
   name: "Ayush Solanki",
@@ -176,5 +176,13 @@ export const testimonials = [
     colorClass: "t-card--peach",
     image: "/testimonials/vraj-darji.jpeg",
     icon: Rocket,
+  },
+  {
+    name: "Abishek",
+    role: "FOUNDER @ steam-games.in",
+    quote:
+      "Working with Ayush was a great experience. He delivered a clean, modern, and user-friendly game shop website that's fast and responsive. He was patient, communicated clearly, and completed everything on time. Highly recommend his excellent work!",
+    colorClass: "t-card--lavender",
+    icon: Gamepad2,
   }
 ];

@@ -39,21 +39,31 @@ export default function WallSection() {
           rel="noopener noreferrer"
           className="canvas-piece github-badge-cluster cursor-pointer block"
         >
-          <h3 className="text-[17px] font-bold text-neutral-800 mb-3 font-serif-display ml-1 tracking-wide flex items-center gap-2">
-            <IconGitHub width={15} height={15} className="text-neutral-700" />
-            Achievements
-            <IconArrowNE width={12} height={12} className="text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </h3>
-          <div className="grid grid-cols-3 gap-2.5">
-            <div className="relative group">
-              <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" alt="Pull Shark" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
-              <div className="absolute -bottom-1 -right-1 bg-neutral-200/90 text-neutral-800 text-[10px] font-bold px-1.5 py-0 rounded-full shadow-sm border border-neutral-300">x2</div>
+          <div className="flex items-center justify-between mb-3 ml-1">
+            <div className="flex items-center gap-2">
+              <IconGitHub width={16} height={16} className="text-neutral-800" />
+              <h3 className="text-[16px] font-bold text-neutral-800 font-serif-display tracking-wide">
+                GitHub
+              </h3>
             </div>
-            <img src="https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png" alt="Pair Extraordinaire" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
-            <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" alt="YOLO" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
-            <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" alt="Quickdraw" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
-            <img src="https://github.githubassets.com/assets/starstruck-default-b6610abad518.png" alt="Starstruck" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
-            <img src="https://github.githubassets.com/assets/arctic-code-vault-contributor-default-df8d74122a06.png" alt="Arctic Code Vault" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
+            <div className="bg-neutral-100 text-neutral-600 text-[11px] font-semibold px-2 py-0.5 rounded-full border border-neutral-200 flex items-center gap-1">
+              67 Repositories <IconArrowNE width={10} height={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 rounded-xl p-3 border border-neutral-100/80">
+            <p className="text-[11px] text-neutral-500 font-medium mb-2.5 pl-1 uppercase tracking-wider">Achievements</p>
+            <div className="grid grid-cols-3 gap-2.5">
+              <div className="relative group">
+                <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" alt="Pull Shark" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
+                <div className="absolute -bottom-1 -right-1 bg-neutral-200/90 text-neutral-800 text-[10px] font-bold px-1.5 py-0 rounded-full shadow-sm border border-neutral-300">x2</div>
+              </div>
+              <img src="https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png" alt="Pair Extraordinaire" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
+              <img src="https://github.githubassets.com/assets/yolo-default-be0bbff04951.png" alt="YOLO" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
+              <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" alt="Quickdraw" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
+              <img src="https://github.githubassets.com/assets/starstruck-default-b6610abad518.png" alt="Starstruck" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
+              <img src="https://github.githubassets.com/assets/arctic-code-vault-contributor-default-df8d74122a06.png" alt="Arctic Code Vault" className="w-[54px] h-[54px] drop-shadow-sm rounded-full object-cover" />
+            </div>
           </div>
         </a>
 
@@ -100,28 +110,39 @@ export default function WallSection() {
           href={siteConfig.socials.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="col-span-2 bg-white rounded-2xl border border-neutral-100 shadow-sm p-4 flex flex-col gap-3"
+          className="col-span-2 bg-white rounded-2xl border border-neutral-100 shadow-sm p-4 flex flex-col gap-3 group"
         >
-          <h3 className="text-[15px] font-bold text-neutral-800 font-serif-display flex items-center gap-2">
-            <IconGitHub width={14} height={14} className="text-neutral-700" />
-            GitHub Achievements
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { src: "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png", alt: "Pull Shark", badge: "x2" },
-              { src: "https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png", alt: "Pair Extraordinaire" },
-              { src: "https://github.githubassets.com/assets/yolo-default-be0bbff04951.png", alt: "YOLO" },
-              { src: "https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png", alt: "Quickdraw" },
-              { src: "https://github.githubassets.com/assets/starstruck-default-b6610abad518.png", alt: "Starstruck" },
-              { src: "https://github.githubassets.com/assets/arctic-code-vault-contributor-default-df8d74122a06.png", alt: "Arctic Code Vault" },
-            ].map((a) => (
-              <div key={a.alt} className="relative">
-                <img src={a.src} alt={a.alt} className="w-[48px] h-[48px] rounded-full object-cover drop-shadow-sm" />
-                {a.badge && (
-                  <div className="absolute -bottom-1 -right-1 bg-neutral-200/90 text-neutral-800 text-[9px] font-bold px-1.5 rounded-full border border-neutral-300">{a.badge}</div>
-                )}
-              </div>
-            ))}
+          <div className="flex items-center justify-between ml-1">
+            <div className="flex items-center gap-2">
+              <IconGitHub width={16} height={16} className="text-neutral-800" />
+              <h3 className="text-[16px] font-bold text-neutral-800 font-serif-display tracking-wide">
+                GitHub
+              </h3>
+            </div>
+            <div className="bg-neutral-100 text-neutral-600 text-[11px] font-semibold px-2 py-0.5 rounded-full border border-neutral-200 flex items-center gap-1">
+              67 Repos <IconArrowNE width={10} height={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 rounded-xl p-3 border border-neutral-100/80 mt-1">
+            <p className="text-[11px] text-neutral-500 font-medium mb-2.5 pl-1 uppercase tracking-wider">Achievements</p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { src: "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png", alt: "Pull Shark", badge: "x2" },
+                { src: "https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png", alt: "Pair Extraordinaire" },
+                { src: "https://github.githubassets.com/assets/yolo-default-be0bbff04951.png", alt: "YOLO" },
+                { src: "https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png", alt: "Quickdraw" },
+                { src: "https://github.githubassets.com/assets/starstruck-default-b6610abad518.png", alt: "Starstruck" },
+                { src: "https://github.githubassets.com/assets/arctic-code-vault-contributor-default-df8d74122a06.png", alt: "Arctic Code Vault" },
+              ].map((a) => (
+                <div key={a.alt} className="relative">
+                  <img src={a.src} alt={a.alt} className="w-[48px] h-[48px] rounded-full object-cover drop-shadow-sm" />
+                  {a.badge && (
+                    <div className="absolute -bottom-1 -right-1 bg-neutral-200/90 text-neutral-800 text-[9px] font-bold px-1.5 rounded-full border border-neutral-300">{a.badge}</div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </a>
 

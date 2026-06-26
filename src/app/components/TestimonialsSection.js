@@ -43,11 +43,11 @@ export default function TestimonialsSection() {
 
     const interval = setInterval(() => {
       if (!scrollContainerRef.current) return;
-      
+
       const container = scrollContainerRef.current;
       const { scrollLeft, scrollWidth, clientWidth } = container;
       const maxScrollLeft = scrollWidth - clientWidth;
-      
+
       if (scrollLeft >= maxScrollLeft - 10) {
         // Go back to the first card
         container.scrollTo({ left: 0, behavior: "smooth" });
@@ -70,9 +70,9 @@ export default function TestimonialsSection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12 mb-10">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
           <h2 className="flex items-center gap-3 text-[24px] font-bold text-neutral-950 sm:text-[32px] font-serif-display">
-            <span aria-hidden="true">✦</span> What people say
+            <span aria-hidden="true">✦</span> Wall of Love
           </h2>
-          <p className="text-sm text-neutral-400 italic">…bribed all of them with pizzas</p>
+          <p className="text-sm text-neutral-400 italic">…notes from people I’ve built software with</p>
         </div>
       </div>
 
@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
 
       {/* ── Mobile: snap slider with dots ───────────────── */}
       <div className="sm:hidden w-full flex flex-col items-center overflow-hidden">
-        <div 
+        <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
           onTouchStart={() => setIsPaused(true)}
@@ -100,22 +100,21 @@ export default function TestimonialsSection() {
           className="flex w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide px-[10vw] pb-12 pt-8 gap-8 items-center"
         >
           {testimonials.map((t, idx) => (
-            <TestimonialCard 
-              key={idx} 
-              t={t} 
-              className="snap-center shrink-0 w-[80vw] max-w-[280px]" 
+            <TestimonialCard
+              key={idx}
+              t={t}
+              className="snap-center shrink-0 w-[80vw] max-w-[280px]"
             />
           ))}
         </div>
-        
+
         {/* Pagination Dots */}
         <div className="flex bg-neutral-300 rounded-full px-4 py-2 gap-2 -mt-4 z-10">
           {testimonials.map((_, idx) => (
-            <div 
-              key={idx} 
-              className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-                idx === activeIndex ? "bg-white" : "bg-white/50"
-              }`}
+            <div
+              key={idx}
+              className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${idx === activeIndex ? "bg-white" : "bg-white/50"
+                }`}
             />
           ))}
         </div>
