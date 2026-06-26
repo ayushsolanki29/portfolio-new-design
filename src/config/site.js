@@ -1,4 +1,4 @@
-import { ThumbsUp, Star, Heart, Zap, Award, TrendingUp, CheckCircle, Briefcase, ShieldCheck, MessageSquare } from "lucide-react";
+import { ThumbsUp, Star, Heart, Zap, Award, TrendingUp, CheckCircle, Briefcase, ShieldCheck, MessageSquare, Rocket } from "lucide-react";
 
 export const siteConfig = {
   name: "Ayush Solanki",
@@ -175,6 +175,6 @@ export const testimonials = [
       "I had a great experience working with Aayush on my billing software. He demonstrated excellent full-stack skills and delivered a reliable, user-friendly solution. He was professional, understood my business needs quickly, and completed the work on time.",
     colorClass: "t-card--peach",
     image: "/testimonials/vraj-darji.jpeg",
-    icon: Star,
+    icon: Rocket,
   }
 ];
