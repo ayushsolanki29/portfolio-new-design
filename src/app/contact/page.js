@@ -1,9 +1,9 @@
 import Image from "next/image";
 import PageShell from "../components/PageShell";
 import PageHero from "../components/PageHero";
-import { IconCheckCircle, IconLinkedIn } from "../components/Icons";
 import { siteConfig } from "@/config/site";
 import ContactForm from "./ContactForm";
+import SocialInfo from "../components/SocialInfo";
 export default function ContactPage() {
   return (
     <PageShell className="overflow-hidden" footerProps={{ hideCTA: true }}>
@@ -46,16 +46,8 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <p className="text-neutral-500 text-[13px] font-medium mb-3">More options</p>
-                <a
-                  href={siteConfig.socials.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 border border-neutral-200 bg-white rounded-xl py-3 hover:bg-neutral-50 transition-colors shadow-sm"
-                >
-                  <IconLinkedIn width={16} height={16} className="text-[#0A66C2]" />
-                  <span className="text-[14px] font-medium text-neutral-800">Send message</span>
-                </a>
+                <p className="text-neutral-500 text-[13px] font-medium mb-4">Connect</p>
+                <SocialInfo />
               </div>
             </div>
           </div>

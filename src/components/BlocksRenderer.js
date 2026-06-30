@@ -38,7 +38,7 @@ export default function BlocksRenderer({ content }) {
           
           case "paragraph":
             return (
-              <p
+              <div
                 key={block.id}
                 className="text-neutral-600 leading-relaxed text-[16px] sm:text-[18px]"
                 dangerouslySetInnerHTML={{ __html: block.data.text }}

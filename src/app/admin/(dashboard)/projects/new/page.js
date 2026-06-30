@@ -33,6 +33,7 @@ export default function NewProjectPage() {
   const [overviewData, setOverviewData] = useState("");
   const [selectedTech, setSelectedTech] = useState([]);
   const [metadataOptions, setMetadataOptions] = useState({ categories: [], roles: [], accentColors: [], tags: [] });
+  const [previewImageUrl, setPreviewImageUrl] = useState("");
 
   useEffect(() => {
     async function fetchOptions() {
@@ -40,6 +41,80 @@ export default function NewProjectPage() {
       setMetadataOptions(options);
     }
     fetchOptions();
+  }, []);
+
+  useEffect(() => {
+    const importDataStr = sessionStorage.getItem("importProjectData");
+    if (importDataStr) {
+      try {
+        const importData = JSON.parse(importDataStr);
+        
+        // Populate standard fields
+        if (importData.title) {
+          const titleEl = document.getElementById("title");
+          if (titleEl) titleEl.value = importData.title;
+        }
+        if (importData.slug) {
+          const slugEl = document.getElementById("slug");
+          if (slugEl) {
+            slugEl.value = importData.slug;
+            slugEl.dataset.modified = "true";
+          }
+        }
+        if (importData.liveUrl) {
+          const liveUrlEl = document.getElementById("live_url");
+          if (liveUrlEl) liveUrlEl.value = importData.liveUrl;
+        }
+        if (importData.githubUrl) {
+          const githubUrlEl = document.getElementById("github_url");
+          if (githubUrlEl) githubUrlEl.value = importData.githubUrl;
+        }
+        if (importData.description) {
+          const subtitleEl = document.getElementById("subtitle");
+          if (subtitleEl) subtitleEl.value = importData.description;
+        }
+        
+        if (importData.createdAt) {
+          const yearEl = document.getElementById("year");
+          if (yearEl) yearEl.value = new Date(importData.createdAt).getFullYear();
+        }
+        
+        if (importData.content) {
+          try {
+            JSON.parse(importData.content);
+            setOverviewData(importData.content);
+          } catch (e) {
+            // If it's HTML or text, wrap in EditorJS block structure
+            const fallbackData = {
+              time: new Date().getTime(),
+              blocks: [
+                {
+                  id: "imported-block",
+                  type: "paragraph",
+                  data: { text: importData.content }
+                }
+              ],
+              version: "2.28.0"
+            };
+            setOverviewData(JSON.stringify(fallbackData));
+          }
+        }
+        
+        if (importData.thumbnail) {
+          setImagePreview(importData.thumbnail);
+          setPreviewImageUrl(importData.thumbnail);
+        }
+        
+        if (importData.techStacks) {
+          const techNames = importData.techStacks.map(t => t.name.toLowerCase().replace(/\s+/g, '-'));
+          setSelectedTech(techNames);
+        }
+        
+        sessionStorage.removeItem("importProjectData");
+      } catch (err) {
+        console.error("Failed to parse import data", err);
+      }
+    }
   }, []);
 
   const handleImageChange = (e) => {
@@ -277,11 +352,12 @@ export default function NewProjectPage() {
                 <label htmlFor="preview_image" className="flex flex-col items-center justify-center w-full h-32 border-2 border-neutral-200/60 border-dashed rounded-xl cursor-pointer bg-neutral-50 hover:bg-neutral-100 transition-colors overflow-hidden relative">
                   {imagePreview ? (
                     <>
-                      <img src={imagePreview} alt="Preview" className="absolute inset-0 w-full h-full object-cover opacity-50" />
-                      <div className="relative z-10 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-neutral-200/50">
-                        <UploadCloud className="w-6 h-6 mb-1 text-emerald-500" />
-                        <p className="text-sm font-medium text-emerald-700">Image selected</p>
-                        <p className="text-xs text-neutral-500">Click to change</p>
+                      <img src={imagePreview} alt="Preview" className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
+                        <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg border border-neutral-200/50 flex flex-col items-center">
+                          <UploadCloud className="w-6 h-6 mb-1 text-emerald-600" />
+                          <p className="text-sm font-medium text-emerald-700">Change Image</p>
+                        </div>
                       </div>
                     </>
                   ) : (
@@ -299,6 +375,7 @@ export default function NewProjectPage() {
                     className="hidden" 
                     onChange={handleImageChange}
                   />
+                  <input type="hidden" name="preview_image_url" value={previewImageUrl} />
                 </label>
               </div>
             </div>

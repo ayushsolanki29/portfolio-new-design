@@ -14,6 +14,9 @@ export const siteConfig = {
   socials: {
     github: "https://github.com/ayushsolanki29",
     linkedin: "https://www.linkedin.com/in/ayush-solanki-a3909625a/",
+    instagram: "ayushsolanki.exe",
+    x: "@ayushsolanki29",
+    facebook: "ayushsolanki29",
   },
   copyrightYear: "2026",
 };
@@ -84,7 +87,7 @@ export const testimonials = [
     role: "Operations Manager @Speedy Laundry",
     image: "/testimonials/akshay.jfif",
     quote:
-      "Ayush delivered our Speedy Laundry website on time with outstanding quality — modern, professional, and perfectly on-brand. His attention to detail and clear communication made the entire process seamless. Highly recommend!",
+      "Ayush delivered our Speedy Laundry website on time with outstanding quality. It looks modern, professional, and perfectly on brand. His clear communication made the entire process seamless. Highly recommended!",
     colorClass: "t-card--cream",
     icon: ThumbsUp,
   },
@@ -92,7 +95,7 @@ export const testimonials = [
     name: "Chandrakant Rathod",
     role: "Chief Technical Officer @ GIPL",
     quote:
-      "Ayush is a talented Software Developer who consistently delivers quality work. He has strong technical skills, a proactive attitude, and excellent problem-solving abilities. It has been a pleasure working with him.",
+      "Ayush is a talented Software Developer who consistently delivers quality work. He brings strong technical skills, a proactive attitude, and excellent problem solving abilities. A real pleasure to work with him.",
     colorClass: "t-card--white",
     image: "/testimonials/ck.webp",
     icon: Star,
@@ -101,7 +104,7 @@ export const testimonials = [
     name: "Suresh Prajapati",
     role: "Owner @ Cassio Dry Cleaners",
     quote:
-      "From day one, Ayush treated our website as if it were his own business. He made the process easy—no technical jargon, just honest communication and consistent progress. The final website looks fantastic and perfectly captures our vision. Highly recommend him!",
+      "From day one, Ayush treated our website as if it were his own business. He made the process easy with no technical jargon, just honest communication and consistent progress. The final website looks fantastic!",
     colorClass: "t-card--peach",
     icon: Heart,
   },
@@ -109,7 +112,7 @@ export const testimonials = [
     name: "Ronak Patel",
     role: "Mobile Development Head @ GIPL",
     quote:
-      "Working with Ayush is always a great experience. He consistently ships clean, reliable backend code and grasps complex requirements instantly. He’s a natural problem solver who hits deadlines without breaking a sweat. Highly recommend him for any backend work!",
+      "Working with Ayush is always a great experience. He consistently ships clean and reliable backend code and grasps complex requirements instantly. He is a natural problem solver who hits deadlines easily.",
     colorClass: "t-card--lavender",
     image: "/testimonials/ronak.jpg",
     icon: Zap,
@@ -118,7 +121,7 @@ export const testimonials = [
     name: "Bhargav Parmar",
     role: "Tech Head @ Impexina Global Pvt Ltd",
     quote:
-      "I am highly satisfied with this software. The UI is modern, intuitive, and user-friendly. The logic implementation is exceptionally well designed, making the workflow smooth and efficient. It has significantly improved our operational efficiency.",
+      "I am highly satisfied with this software. The user interface is modern, intuitive, and very friendly. The logic implementation is incredibly well designed, making the workflow smooth and improving our efficiency.",
     colorClass: "t-card--cream",
     image: "/testimonials/bhargav.jpeg",
     icon: Award,
@@ -127,7 +130,7 @@ export const testimonials = [
     name: "Nikita Soni",
     role: "Operation Head @ Impexina Global Pvt Ltd",
     quote:
-      "The software is very well developed and covers all operational requirements effectively. The logic building behind each module is excellent. I especially appreciate the Summary section for quick insights. Every module is designed with practicality in mind.",
+      "The software is very well developed and covers all operational requirements effectively. The logic behind each module is excellent. I especially appreciate the Summary section for quick insights. Truly practical.",
     colorClass: "t-card--white",
     image: "/testimonials/Nikita.jpeg",
     icon: TrendingUp,
@@ -136,7 +139,7 @@ export const testimonials = [
     name: "Harshita Rao",
     role: "Documentation Head @ Impexina Global Pvt Ltd",
     quote:
-      "The Packing List and Invoice modules are extremely well structured. The valuation functionality saves considerable time during documentation processes. The UI/UX design is clean and professional, making document preparation much more efficient.",
+      "The Packing List and Invoice modules are extremely well structured. The valuation functionality saves considerable time during documentation processes. The design is clean and professional, making things efficient.",
     colorClass: "t-card--peach",
     image: "/testimonials/Harshita.jpeg",
     icon: CheckCircle,
@@ -145,7 +148,7 @@ export const testimonials = [
     name: "Asha Kacha",
     role: "Logistics Head @ Impexina Global Pvt Ltd",
     quote:
-      "The Loading Sheet module is one of the strongest features. It simplifies logistics planning and helps manage shipments efficiently. The entire system is well organized and easy to navigate. It has improved accuracy across different departments.",
+      "The Loading Sheet module is one of the strongest features. It simplifies logistics planning and helps manage shipments efficiently. The system is well organized and very easy to navigate. A great accuracy boost.",
     colorClass: "t-card--lavender",
     image: "/testimonials/asha.jpeg",
     icon: Briefcase,
@@ -154,7 +157,7 @@ export const testimonials = [
     name: "P. S. Harikrishna",
     role: "Director @ Impexina Global Pvt Ltd",
     quote:
-      "This software transformed how we manage import-export operations, integrating documentation, logistics, and reporting into a single platform. It has increased productivity, improved visibility, and helped us maintain better operational control.",
+      "This software transformed how we manage import operations, integrating documentation, logistics, and reporting into a single platform. It has increased productivity, improved visibility, and enhanced our control.",
     colorClass: "t-card--cream",
     image: "/testimonials/harikrishna.jfif",
     icon: ShieldCheck,
@@ -163,7 +166,7 @@ export const testimonials = [
     name: "Overall Company Feedback",
     role: "Company Feedback @ Impexina Global Pvt Ltd",
     quote:
-      "This software provides a complete end-to-end solution for import business management. It is easy to use, highly efficient, and backed by strong business logic. It has significantly reduced manual work and enhanced collaboration between departments.",
+      "This software provides a complete solution for import business management. It is easy to use, highly efficient, and backed by strong business logic. It has significantly reduced manual work and boosted teamwork.",
     colorClass: "t-card--white",
     image: "/companies/impexina.jpeg",
     icon: MessageSquare,
@@ -173,7 +176,7 @@ export const testimonials = [
     name: "Vraj Darji",
     role: "Marketing Head @ GIPL",
     quote:
-      "I had a great experience working with Aayush on my billing software. He demonstrated excellent full-stack skills and delivered a reliable, user-friendly solution. He was professional, understood my business needs quickly, and completed the work on time.",
+      "I had a great experience working with Ayush on my billing software. He showed excellent skills and delivered a reliable solution. He was professional, understood my needs quickly, and finished everything on time.",
     colorClass: "t-card--peach",
     image: "/testimonials/vraj-darji.jpeg",
     icon: Rocket,
@@ -182,7 +185,7 @@ export const testimonials = [
     name: "Abishek",
     role: "FOUNDER @ steam-games.in",
     quote:
-      "Working with Ayush was a great experience. He delivered a clean, modern, and user-friendly game shop website that's fast and responsive. He was patient, communicated clearly, and completed everything on time. Highly recommend his excellent work!",
+      "Working with Ayush was a great experience. He delivered a clean, modern, and friendly game shop website that is fast and responsive. He was patient, communicated clearly, and completed everything on time for us.",
     colorClass: "t-card--lavender",
     icon: Gamepad2,
   }

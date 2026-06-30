@@ -31,7 +31,11 @@ export default function EditProjectForm({ project }) {
   const [success, setSuccess] = useState(false);
   
   const [imagePreview, setImagePreview] = useState(project.preview_image || null);
-  const [overviewData, setOverviewData] = useState(project.overview ? JSON.stringify(project.overview) : "");
+  const [overviewData, setOverviewData] = useState(
+    typeof project.overview === "string" 
+      ? project.overview 
+      : (project.overview ? JSON.stringify(project.overview) : "")
+  );
   const [selectedTech, setSelectedTech] = useState(project.built_with || []);
   const [metadataOptions, setMetadataOptions] = useState({ categories: [], roles: [], accentColors: [], tags: [] });
 
@@ -260,11 +264,12 @@ export default function EditProjectForm({ project }) {
                 <label htmlFor="preview_image" className="flex flex-col items-center justify-center w-full h-32 border-2 border-neutral-200/60 border-dashed rounded-xl cursor-pointer bg-neutral-50 hover:bg-neutral-100 transition-colors overflow-hidden relative">
                   {imagePreview ? (
                     <>
-                      <img src={imagePreview} alt="Preview" className="absolute inset-0 w-full h-full object-cover opacity-50" />
-                      <div className="relative z-10 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-neutral-200/50">
-                        <UploadCloud className="w-6 h-6 mb-1 text-emerald-500" />
-                        <p className="text-sm font-medium text-emerald-700">Image selected</p>
-                        <p className="text-xs text-neutral-500">Click to change</p>
+                      <img src={imagePreview} alt="Preview" className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
+                        <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg border border-neutral-200/50 flex flex-col items-center">
+                          <UploadCloud className="w-6 h-6 mb-1 text-emerald-600" />
+                          <p className="text-sm font-medium text-emerald-700">Change Image</p>
+                        </div>
                       </div>
                     </>
                   ) : (

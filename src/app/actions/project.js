@@ -30,6 +30,7 @@ export async function createProject(formData) {
     const github_url = formData.get("github_url");
     const overview = formData.get("overview");
     const file = formData.get("preview_image");
+    const preview_image_url = formData.get("preview_image_url");
 
     let built_with = [];
     if (builtWithStr) {
@@ -44,7 +45,7 @@ export async function createProject(formData) {
       ? tagsStr.split(",").map(item => item.trim()).filter(Boolean)
       : [];
 
-    let preview_image = null;
+    let preview_image = preview_image_url || null;
     if (file && file.size > 0) {
       const uploadResult = await uploadImage(file, "portfolio/projects");
       if (!uploadResult.success) {

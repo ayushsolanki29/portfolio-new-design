@@ -27,9 +27,9 @@ export default function WallSection() {
           <div className="wall-sign font-handwritten">This is my wall</div>
         </div>
 
-        <div className="canvas-piece smile-doodle" aria-hidden="true">
+        {/* <div className="canvas-piece smile-doodle" aria-hidden="true">
           <span />
-        </div>
+        </div> */}
 
         <NPMWidget />
 
@@ -67,11 +67,11 @@ export default function WallSection() {
           </div>
         </a>
 
-        <div className="canvas-piece winner-card">
+        {/* <div className="canvas-piece winner-card">
           <span className="pronoun-badge">he/him</span>
           <div className="h-full w-full rounded-[10px] bg-neutral-200" aria-label="Award winner photo placeholder" />
           <div className="medal" aria-hidden="true"><span>★</span></div>
-        </div>
+        </div> */}
 
         <div className="canvas-piece sticky-note font-handwritten">
           <p>My portfolio is still under construction, trying to curate my chaos into an order, it takes time.</p>
@@ -147,19 +147,19 @@ export default function WallSection() {
         </a>
 
         {/* he/him + award card */}
-        <div className="col-span-1 bg-neutral-100 rounded-2xl p-4 flex flex-col gap-2 min-h-[120px] relative">
+        {/* <div className="col-span-1 bg-neutral-100 rounded-2xl p-4 flex flex-col gap-2 min-h-[120px] relative">
           <span className="inline-flex self-start bg-[#3184ff] text-white text-[12px] font-bold px-2 py-0.5 rounded-full">he/him</span>
           <div className="flex-1 rounded-lg bg-neutral-200" />
-        </div>
+        </div> */}
 
         {/* Smile doodle */}
-        <div className="col-span-1 bg-[#faf9f8] rounded-2xl border border-neutral-100 flex items-center justify-center min-h-[120px]">
+        {/* <div className="col-span-1 bg-[#faf9f8] rounded-2xl border border-neutral-100 flex items-center justify-center min-h-[120px]">
           <div className="w-[70px] h-[70px] border-[3px] border-neutral-800 rounded-full relative flex items-center justify-center">
             <div className="absolute top-[22px] left-[18px] w-[6px] h-[6px] rounded-full bg-neutral-800" />
             <div className="absolute top-[22px] right-[18px] w-[6px] h-[6px] rounded-full bg-neutral-800" />
             <div className="absolute bottom-[16px] left-[16px] w-[34px] h-[16px] border-b-[3px] border-neutral-800 rounded-b-full" />
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>

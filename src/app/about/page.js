@@ -4,8 +4,7 @@ import ToolsSection from "../components/ToolsSection";
 import LifeSkills from "../components/LifeSkills";
 import MarqueeSlider from "../components/MarqueeSlider";
 import FadedQuote from "../components/FadedQuote";
-import MusicSection from "../components/MusicSection";
-MusicSection
+import SocialInfo from "../components/SocialInfo";
 
 export default function AboutPage() {
   const tripPhotos = [
@@ -16,13 +15,6 @@ export default function AboutPage() {
     "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop"
   ];
 
-  const passionPhotos = [
-    "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?q=80&w=600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=600&auto=format&fit=crop"
-  ];
 
   return (
     <PageShell className="overflow-hidden bg-[#FAF9F8]">
@@ -56,8 +48,11 @@ export default function AboutPage() {
                 Currently, I lead an 8–10 person technical team at Gohil Infotech, owning the end-to-end delivery and reliability of 35+ live production applications. Whether it's designing fault-tolerant hardware-to-cloud data syncs or optimizing infrastructure costs by 40%, I thrive on solving complex engineering problems and building systems that scale.
               </p>
             </div>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-16">
               <img src="/signature.png" alt="Ayush Signature" className="h-12 sm:h-16 w-auto object-contain transform -rotate-2" />
+              <div className="border-l border-neutral-200 pl-8">
+                <SocialInfo />
+              </div>
             </div>
           </div>
         </div>
@@ -80,14 +75,6 @@ export default function AboutPage() {
         </div>
         <div className="mb-20">
           <MarqueeSlider images={tripPhotos} direction="right" speed={30} />
-        </div>
-
-        <div className="mx-auto max-w-5xl px-5 sm:px-8 text-center mb-12">
-          <span className="text-neutral-500 font-medium text-sm tracking-wider uppercase mb-3 block">Another Passion</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 font-serif-display">I Love to design and build</h2>
-        </div>
-        <div>
-          <MarqueeSlider images={passionPhotos} direction="left" speed={40} />
         </div>
       </div>
 

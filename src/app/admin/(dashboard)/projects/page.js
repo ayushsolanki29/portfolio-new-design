@@ -8,6 +8,7 @@ import ProjectPagination from "@/components/admin/ProjectPagination";
 import { getProjectMetadataOptions } from "@/app/actions/project";
 import { CldImage } from "next-cloudinary";
 import Image from "next/image";
+import ImportProjectModal from "@/components/admin/ImportProjectModal";
 
 export const dynamic = "force-dynamic";
 
@@ -64,13 +65,16 @@ export default async function AdminProjectsPage({ searchParams }) {
           <h1 className="text-3xl font-serif-display font-bold text-neutral-900 tracking-tight">Projects</h1>
           <p className="text-neutral-500 mt-1">Manage your portfolio case studies.</p>
         </div>
-        <Link 
-          href="/admin/projects/new" 
-          className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-xl bg-neutral-900 text-white font-medium hover:bg-neutral-800 transition-colors shadow-sm"
-        >
-          <Plus className="h-4 w-4" />
-          Add Project
-        </Link>
+        <div className="flex items-center gap-3">
+          <ImportProjectModal />
+          <Link 
+            href="/admin/projects/new" 
+            className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-xl bg-neutral-900 text-white font-medium hover:bg-neutral-800 transition-colors shadow-sm"
+          >
+            <Plus className="h-4 w-4" />
+            Add Project
+          </Link>
+        </div>
       </div>
 
       <ProjectFilters categories={categories} />

@@ -18,9 +18,17 @@ export default function Editor({ value, onChange }) {
   useEffect(() => {
     // Initialize editor if it doesn't exist
     if (!editorRef.current) {
+      let initialData;
+      try {
+        initialData = value ? JSON.parse(value) : undefined;
+      } catch (err) {
+        console.error("EditorJS parsing error. Falling back to undefined.", err);
+        initialData = undefined;
+      }
+
       const editor = new EditorJS({
         holder: "editorjs-container",
-        data: value ? JSON.parse(value) : undefined,
+        data: initialData,
         placeholder: "Write your project overview here...",
         tools: {
           header: {
