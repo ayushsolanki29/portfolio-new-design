@@ -129,6 +129,7 @@ export const testimonials = [
     quote:
       "The software is very well developed and covers all operational requirements effectively. The logic building behind each module is excellent. I especially appreciate the Summary section for quick insights. Every module is designed with practicality in mind.",
     colorClass: "t-card--white",
+    image: "/testimonials/nikita.jpeg",
     icon: TrendingUp,
   },
   {
